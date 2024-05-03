@@ -2,7 +2,7 @@ package com.do55anto5.digitalbank.presenter.data.repository.auth
 
 import com.google.firebase.database.FirebaseDatabase
 
-class AuthFirebaseDataSourceImp(
+class AuthFirebaseDataSourceImpl(
     firebaseDatabase: FirebaseDatabase
 ) : AuthFirebaseDataSource {
 
