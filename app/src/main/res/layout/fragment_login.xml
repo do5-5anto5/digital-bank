@@ -21,7 +21,8 @@
             style="@style/editLoginTextStyle"
             app:layout_constraintBottom_toTopOf="@+id/editPassword"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/editPassword"
@@ -30,8 +31,9 @@
             android:drawableStart="@drawable/ic_password_line"
             style="@style/editLoginTextStyle"
             android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/loginBtn"
             app:layout_constraintHorizontal_bias="0.5"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintBottom_toTopOf="@+id/loginBtn"
             app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
         <com.google.android.material.button.MaterialButton
