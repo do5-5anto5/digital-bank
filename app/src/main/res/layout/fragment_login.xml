@@ -40,17 +40,17 @@
             android:inputType="textPassword"
             android:layout_marginTop="16dp"
             style="@style/editTextStyle"
-            app:layout_constraintBottom_toTopOf="@+id/materialButton"
+            app:layout_constraintBottom_toTopOf="@+id/loginBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton"
+            android:id="@+id/loginBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Entrar"
+            android:text="LOGIN"
             android:background="@drawable/bg_button"
             android:layout_marginTop="16dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -68,20 +68,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialButton">
+            app:layout_constraintTop_toBottomOf="@+id/loginBtn">
 
             <TextView
+                android:id="@+id/txtCreate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Criar Conta"
+                android:text="Create account"
                 android:textColor="@color/color_default" />
 
             <TextView
+                android:id="@+id/txtRecover"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Recuperar Conta"
+                android:text="Recover account"
                 android:textAlignment="textEnd"
                 android:textColor="@color/color_default" />
 
@@ -91,7 +93,7 @@
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/white"
+            android:indeterminateTint="@color/color_default"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

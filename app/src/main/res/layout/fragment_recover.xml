@@ -26,17 +26,18 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/txtToolbar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Recuperar senha"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:text="Password recover" />
 
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txtInstructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
@@ -55,10 +56,10 @@
             android:layout_margin="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/txtInstructions" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_edit_text_around"
@@ -73,15 +74,18 @@
             app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton"
+            android:id="@+id/sendBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:background="@drawable/bg_button"
             android:text="SEND E-MAIL"
-            app:layout_constraintTop_toBottomOf="@+id/editText"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
         <ProgressBar
+            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -90,7 +94,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/materialButton"
+            app:layout_constraintTop_toBottomOf="@id/sendBtn"
             app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
