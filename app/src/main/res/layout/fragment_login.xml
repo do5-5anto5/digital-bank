@@ -15,35 +15,23 @@
 
         <EditText
             android:id="@+id/editEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
             android:drawableStart="@drawable/ic_email_line"
-            android:drawablePadding="8dp"
-            app:drawableTint="@color/color_default"
-            style="@style/editTextStyle"
+            style="@style/editLoginTextStyle"
             app:layout_constraintBottom_toTopOf="@+id/editPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
             android:id="@+id/editPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:hint="Password"
-            android:drawableStart="@drawable/ic_password_line"
-            android:drawablePadding="8dp"
-            android:drawableTint="@color/color_default"
             android:inputType="textPassword"
+            android:drawableStart="@drawable/ic_password_line"
+            style="@style/editLoginTextStyle"
             android:layout_marginTop="16dp"
-            style="@style/editTextStyle"
             app:layout_constraintBottom_toTopOf="@+id/loginBtn"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
         <com.google.android.material.button.MaterialButton

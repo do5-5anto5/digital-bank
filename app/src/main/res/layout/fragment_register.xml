@@ -45,122 +45,60 @@
 
             <TextView
                 android:id="@+id/txtName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="@color/color_default"
                 android:text="Name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                style="@style/txtRegisterLabels"/>
 
             <EditText
 
                 android:id="@+id/editName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/bg_edit_text_around"
                 android:drawableStart="@drawable/ic_user_line"
-                android:drawablePadding="8dp"
-                android:drawableTint="@color/color_default"
                 android:hint="Type your name"
-                android:padding="14dp"
-                android:textColorHint="@color/color_text_hint" />
+                style="@style/editRegisterTextStyle"/>
 
             <TextView
                 android:id="@+id/txtEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="@color/color_default"
                 android:text="E-mail"
-                android:hint="Type your name"
-                android:textColorHint="@color/color_text_hint"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                style="@style/txtRegisterLabels"/>
 
             <EditText
                 android:id="@+id/editEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_edit_text_around"
-                android:layout_marginTop="4dp"
-                android:padding="14dp"
                 android:drawableStart="@drawable/ic_email_line"
-                android:drawablePadding="8dp"
-                android:drawableTint="@color/color_default"
                 android:hint="Type your e-mail"
-                android:textColorHint="@color/color_text_hint"/>
+                style="@style/editRegisterTextStyle"/>
 
             <TextView
                 android:id="@+id/txtPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="@color/color_default"
                 android:text="Phone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                style="@style/txtRegisterLabels"/>
 
             <EditText
                 android:id="@+id/editPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/bg_edit_text_around"
                 android:drawableStart="@drawable/ic_phone_line"
-                android:drawablePadding="8dp"
-                android:drawableTint="@color/color_default"
                 android:hint="Type your phone number"
-                android:padding="14dp"
-                android:textColorHint="@color/color_text_hint" />
+                style="@style/editRegisterTextStyle" />
 
             <TextView
                 android:id="@+id/txtPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="@color/color_default"
                 android:text="Password"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                style="@style/txtRegisterLabels"
                 />
 
             <EditText
                 android:id="@+id/editPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/bg_edit_text_around"
                 android:drawableStart="@drawable/ic_password_line"
-                android:drawablePadding="8dp"
-                android:drawableTint="@color/color_default"
                 android:hint="Create your password"
-                android:padding="14dp"
-                android:textColorHint="@color/color_text_hint" />
+                style="@style/editRegisterTextStyle" />
 
             <TextView
                 android:id="@+id/txtConfirm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="@color/color_default"
                 android:text="Confirm"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                style="@style/txtRegisterLabels"/>
 
             <EditText
                 android:id="@+id/editConfirmPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/bg_edit_text_around"
                 android:drawableStart="@drawable/ic_password_line"
-                android:drawablePadding="8dp"
-                android:drawableTint="@color/color_default"
                 android:hint="Confirm your password"
-                android:padding="14dp"
-                android:textColorHint="@color/color_text_hint" />
+                style="@style/editRegisterTextStyle"/>
 
 
 
@@ -170,8 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_button"
-                android:text="REGISTER"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+                android:text="REGISTER"/>
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -179,13 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:indeterminateTint="@color/color_default"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/sendBtn"
-                app:layout_constraintVertical_bias="0.0" />
+                android:indeterminateTint="@color/color_default" />
 
         </LinearLayout>
 
