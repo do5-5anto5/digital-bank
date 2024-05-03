@@ -33,3 +33,8 @@
 ## **Additional Considerations**
 **Future Development:** 
     The app can be expanded with new features and enhancements according to the specific needs of the user.
+
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/fd3297b4-1a63-416c-9686-534b861a0e06)
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/d08ae7f0-60a7-40d8-aa9c-102d2da58de6)
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/cd9e1bde-6d86-4ddf-b471-62d4193eff53)
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/915219b1-5aa0-4e95-a18f-4f3a3b72840b)
