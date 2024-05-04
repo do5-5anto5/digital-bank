@@ -9,7 +9,9 @@ import android.widget.Toast
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.databinding.FragmentRecoverBinding
 import com.do55anto5.digitalbank.databinding.FragmentRegisterBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding = _binding!!

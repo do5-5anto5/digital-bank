@@ -1,4 +1,4 @@
-package com.do55anto5.digitalbank.presenter.data.repository.auth
+package com.do55anto5.digitalbank.data.repository.auth
 
 import com.google.firebase.database.FirebaseDatabase
 

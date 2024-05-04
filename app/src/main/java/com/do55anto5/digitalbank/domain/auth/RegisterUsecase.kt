@@ -1,6 +1,6 @@
 package com.do55anto5.digitalbank.domain.auth
 
-import com.do55anto5.digitalbank.presenter.data.repository.auth.AuthFirebaseDataSourceImpl
+import com.do55anto5.digitalbank.data.repository.auth.AuthFirebaseDataSourceImpl
 
 class RegisterUsecase(
     private val authFirebaseDataSourceImpl: AuthFirebaseDataSourceImpl
