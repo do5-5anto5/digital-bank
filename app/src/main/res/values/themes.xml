@@ -2,6 +2,7 @@
 
     <style name="Base.Theme.DigitalBank" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/color_default</item>
+        <item name="colorPrimaryVariant">@color/color_text_hint</item>
         <item name="android:windowBackground">@color/color_default</item>
     </style>
 

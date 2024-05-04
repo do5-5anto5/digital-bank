@@ -14,7 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class RecoverFragment : Fragment() {
     private var _binding: FragmentRecoverBinding? = null
-    private val binding = _binding!!
+    private val binding get()= _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
