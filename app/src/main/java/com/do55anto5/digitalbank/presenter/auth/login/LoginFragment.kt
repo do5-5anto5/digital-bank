@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,6 +32,12 @@ class LoginFragment : Fragment() {
     }
 
     private fun initListeners() {
+        binding.txtRegister.setOnClickListener{
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+        binding.txtRecover.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_recoverFragment)
+        }
 
         binding.loginBtn.setOnClickListener {
             validateData()
