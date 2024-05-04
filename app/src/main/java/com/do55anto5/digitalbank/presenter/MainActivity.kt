@@ -6,9 +6,6 @@ import com.do55anto5.digitalbank.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-               setContentView(R.layout.activity_main)
-    }
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
+
 }

@@ -59,6 +59,10 @@ dependencies {
     implementation(libs.hilt.android)
     kapt("com.google.dagger:hilt-android-compiler:2.48.1")
 
+    //Navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
     //tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
