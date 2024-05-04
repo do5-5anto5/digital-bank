@@ -1,5 +1,7 @@
 package com.do55anto5.digitalbank.data.repository.auth
 
+import com.google.firebase.auth.FirebaseUser
+
 interface AuthFirebaseDataSource {
 
     suspend fun login(email: String, password: String)
@@ -7,6 +9,7 @@ interface AuthFirebaseDataSource {
         name: String,
         email: String,
         phone: String,
-        password: String)
+        password: String
+    ): FirebaseUser
     suspend fun recover(email: String)
 }

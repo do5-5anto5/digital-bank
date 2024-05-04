@@ -1,5 +1,6 @@
 package com.do55anto5.digitalbank.dependency_injection
 
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import dagger.Module
 import dagger.Provides
@@ -15,6 +16,12 @@ object FirebaseModule {
     @Provides
     fun provideFirebaseDatabase() : FirebaseDatabase {
         return FirebaseDatabase.getInstance()
+    }
+
+    @Singleton
+    @Provides
+    fun provideFirebaseAuth() : FirebaseAuth {
+        return FirebaseAuth.getInstance()
     }
 
 }
