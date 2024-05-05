@@ -35,9 +35,9 @@ class SplashFragment : Fragment() {
 
     private fun verifyAuth() {
         if (FireBaseHelper.isAuthenticated()) {
-            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
-        } else {
             findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+        } else {
+            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
         }
     }
 

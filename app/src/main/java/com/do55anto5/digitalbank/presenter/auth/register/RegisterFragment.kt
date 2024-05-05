@@ -111,16 +111,16 @@ class RegisterFragment : Fragment() {
             when(stateView) {
 
                 is StateView.Loading -> {
-                    binding.toolbar.isVisible = true
+                    binding.progressBar.isVisible = true
                 }
                 is StateView.Success -> {
-                    binding.toolbar.isVisible = false
+                    binding.progressBar.isVisible = false
 
                     Toast.makeText(requireContext(), "User successfully registered",
                         Toast.LENGTH_SHORT).show()
                 }
                 is StateView.Error -> {
-                    binding.toolbar.isVisible = false
+                    binding.progressBar.isVisible = false
 
                     Toast.makeText(requireContext(), stateView.message,
                         Toast.LENGTH_SHORT).show()
