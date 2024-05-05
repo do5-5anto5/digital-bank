@@ -1,23 +1,25 @@
-package com.do55anto5.digitalbank.presenter.splash
+package com.do55anto5.digitalbank.presenter.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.do55anto5.digitalbank.databinding.FragmentSplashBinding
+import com.do55anto5.digitalbank.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-class SplashFragment : Fragment() {
+@AndroidEntryPoint
+class HomeFragment : Fragment() {
 
-    private var _binding: FragmentSplashBinding? = null
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSplashBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -25,4 +27,5 @@ class SplashFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
+
 }
