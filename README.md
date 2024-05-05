@@ -30,7 +30,10 @@
 #### **Iguana 2.1:**
     A declarative UI framework for Android that facilitates the creation of intuitive and responsive interfaces.
     
-## **Additional Considerations**
+## **Additional Considerations**    
+    For privacy reasons, google-services.json is not online repository. 
+    \nGet it creating a project on Firebase (https://console.firebase.google.com/) and save it
+    in app folder \nto connection and athentication tests
 **Future Development:** 
     The app can be expanded with new features and enhancements according to the specific needs of the user.
 

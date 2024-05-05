@@ -1,5 +1,6 @@
 package com.do55anto5.digitalbank.presenter.auth.recover
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.do55anto5.digitalbank.domain.auth.RecoverUsecase
 import com.do55anto5.digitalbank.util.StateView
@@ -10,7 +11,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RecoverViewModel @Inject constructor(
     private val recoverUsecase: RecoverUsecase
-) {
+) : ViewModel() {
 
     fun recover(email: String) = liveData(Dispatchers.IO) {
         try {
