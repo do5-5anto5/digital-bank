@@ -51,9 +51,10 @@
             <EditText
 
                 android:id="@+id/editName"
+                style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_user_line"
                 android:hint="Type your name"
-                style="@style/editRegisterTextStyle"/>
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/txtEmail"
@@ -62,9 +63,10 @@
 
             <EditText
                 android:id="@+id/editEmail"
+                style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_email_line"
                 android:hint="Type your e-mail"
-                style="@style/editRegisterTextStyle"/>
+                android:inputType="textWebEmailAddress" />
 
             <TextView
                 android:id="@+id/txtPhone"
@@ -73,9 +75,10 @@
 
             <EditText
                 android:id="@+id/editPhone"
+                style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_phone_line"
                 android:hint="Type your phone number"
-                style="@style/editRegisterTextStyle" />
+                android:inputType="phone" />
 
             <TextView
                 android:id="@+id/txtPassword"
@@ -85,9 +88,10 @@
 
             <EditText
                 android:id="@+id/editPassword"
+                style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_password_line"
                 android:hint="Create your password"
-                style="@style/editRegisterTextStyle" />
+                android:inputType="textPassword" />
 
             <TextView
                 android:id="@+id/txtConfirm"
@@ -96,9 +100,10 @@
 
             <EditText
                 android:id="@+id/editConfirmPassword"
+                style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_password_line"
                 android:hint="Confirm your password"
-                style="@style/editRegisterTextStyle"/>
+                android:inputType="textPassword" />
 
 
 
