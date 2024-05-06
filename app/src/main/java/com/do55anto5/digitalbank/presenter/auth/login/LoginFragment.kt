@@ -13,6 +13,7 @@ import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.User
 import com.do55anto5.digitalbank.databinding.FragmentLoginBinding
 import com.do55anto5.digitalbank.util.StateView
+import com.do55anto5.digitalbank.util.showBottomSheet
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Base.Theme.DigitalBank" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/color_default</item>
@@ -38,6 +38,16 @@
         <item name="android:textColorHint">@color/color_text_hint</item>
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
+    </style>
+
+    <style name="divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginVertical" tools:targetApi="o">16dp</item>
+
+        =""
+        =""
+        android:layout_marginVertical=""
     </style>
 
     <style name="Theme.DigitalBank" parent="Base.Theme.DigitalBank" />

@@ -18,12 +18,15 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="16dp">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
                 <TextView
                     android:id="@+id/txtToolbar"
@@ -33,6 +36,9 @@
                     android:text="Password recover" />
 
             </androidx.appcompat.widget.Toolbar>
+
+            <com.google.android.material.divider.MaterialDivider
+                style="@style/divider"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
