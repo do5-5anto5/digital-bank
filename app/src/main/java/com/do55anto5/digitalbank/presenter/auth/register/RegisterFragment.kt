@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.User
 import com.do55anto5.digitalbank.databinding.FragmentRegisterBinding
 import com.do55anto5.digitalbank.util.StateView
@@ -68,7 +69,7 @@ class RegisterFragment : Fragment() {
                         } else {
 
                             Toast.makeText(
-                                requireContext(), "Password and confirmation are different",
+                                requireContext(), R.string.error_txt_confirmation,
                                 Toast.LENGTH_SHORT
                             ).show()
 
@@ -76,40 +77,34 @@ class RegisterFragment : Fragment() {
                     } else {
 
                         Toast.makeText(
-                            requireContext(), "Password field is empty", Toast.LENGTH_SHORT
+                            requireContext(), R.string.error_txt_password, Toast.LENGTH_SHORT
                         ).show()
 
                     }
                 } else {
 
                     Toast.makeText(
-                        requireContext(), "Phone field is empty",
+                        requireContext(), R.string.error_txt_phone,
                         Toast.LENGTH_SHORT)
                         .show()
 
                 }
             } else {
 
-                Toast.makeText(requireContext(), "Email field is empty",
+                Toast.makeText(requireContext(), R.string.error_txt_email,
                     Toast.LENGTH_SHORT
                 ).show()
 
             }
 
         } else {
-            Toast.makeText(requireContext(), "Name field is empty",
+            Toast.makeText(requireContext(), R.string.error_txt_name,
                 Toast.LENGTH_SHORT
             ).show()
         }
     }
 
     private fun registerUser(user: User) {
-
-        Toast.makeText(
-            requireContext(),
-            "User successfully registered",
-            Toast.LENGTH_SHORT
-        ).show()
 
         registerViewModel.register(user).observe(viewLifecycleOwner) { stateView ->
             when(stateView) {
@@ -120,7 +115,8 @@ class RegisterFragment : Fragment() {
                 is StateView.Success -> {
                     binding.progressBar.isVisible = false
 
-                    Toast.makeText(requireContext(), "User successfully registered",
+                    Toast.makeText(requireContext(),
+                        R.string.register_fragment_bottom_sheet_register_success,
                         Toast.LENGTH_SHORT).show()
                 }
                 is StateView.Error -> {

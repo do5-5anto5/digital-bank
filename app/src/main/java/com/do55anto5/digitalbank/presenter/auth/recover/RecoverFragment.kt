@@ -68,7 +68,7 @@ class RecoverFragment : Fragment() {
                     binding.progressBar.isVisible = false
 
                     Toast.makeText(requireContext(),
-                        "Recovery link successful sent to your email",
+                        R.string.recover_fragment_bottom_sheet_success_recover,
                         Toast.LENGTH_SHORT).show()
 
                 }

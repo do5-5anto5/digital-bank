@@ -1,19 +1,17 @@
 package com.do55anto5.digitalbank.presenter.auth.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
-import com.do55anto5.digitalbank.data.model.User
 import com.do55anto5.digitalbank.databinding.FragmentLoginBinding
 import com.do55anto5.digitalbank.util.StateView
-import com.do55anto5.digitalbank.util.showBottomSheet
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -59,10 +57,10 @@ class LoginFragment : Fragment() {
             if (password.isNotEmpty()){
                 loginUser(email, password)
             } else {
-                Toast.makeText(requireContext(), "Password field is empty", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), R.string.error_txt_password, Toast.LENGTH_SHORT).show()
             }
         } else {
-            Toast.makeText(requireContext(), "Email field is empty", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.error_txt_email, Toast.LENGTH_SHORT).show()
         }
     }
 

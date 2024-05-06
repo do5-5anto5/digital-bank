@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Register account" />
+                    android:text="@string/register_fragment_toolbar_txt_recover" />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -49,7 +49,7 @@
 
             <TextView
                 android:id="@+id/txtName"
-                android:text="Name"
+                android:text="@string/register_fragment_txt_name"
                 style="@style/txtRegisterLabels"/>
 
             <EditText
@@ -57,36 +57,36 @@
                 android:id="@+id/editName"
                 style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_user_line"
-                android:hint="Type your name"
+                android:hint="@string/register_fragment_edit_txt_name"
                 android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/txtEmail"
-                android:text="E-mail"
+                android:text="@string/register_fragment_txt_email"
                 style="@style/txtRegisterLabels"/>
 
             <EditText
                 android:id="@+id/editEmail"
                 style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_email_line"
-                android:hint="Type your e-mail"
+                android:hint="@string/register_fragment_edit_txt_email"
                 android:inputType="textWebEmailAddress" />
 
             <TextView
                 android:id="@+id/txtPhone"
-                android:text="Phone"
+                android:text="@string/register_fragment_txt_phone"
                 style="@style/txtRegisterLabels"/>
 
             <EditText
                 android:id="@+id/editPhone"
                 style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_phone_line"
-                android:hint="Type your phone number"
+                android:hint="@string/register_fragment_edit_txt_phone"
                 android:inputType="phone" />
 
             <TextView
                 android:id="@+id/txtPassword"
-                android:text="Password"
+                android:text="@string/register_fragment_txt_password"
                 style="@style/txtRegisterLabels"
                 />
 
@@ -94,19 +94,19 @@
                 android:id="@+id/editPassword"
                 style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_password_line"
-                android:hint="Create your password"
+                android:hint="@string/register_fragment_edit_txt_password"
                 android:inputType="textPassword" />
 
             <TextView
                 android:id="@+id/txtConfirm"
-                android:text="Confirm"
+                android:text="@string/register_fragment_txt_confirm"
                 style="@style/txtRegisterLabels"/>
 
             <EditText
                 android:id="@+id/editConfirmPassword"
                 style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_password_line"
-                android:hint="Confirm your password"
+                android:hint="@string/register_fragment_edit_txt_confirm"
                 android:inputType="textPassword" />
 
 
@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_button"
-                android:text="REGISTER"/>
+                android:text="@string/register_fragment_txt_btn_register"/>
 
             <ProgressBar
                 android:id="@+id/progressBar"

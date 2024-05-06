@@ -33,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Password recover" />
+                    android:text="@string/recover_fragment_toolbar_txt" />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
-            android:text="Type your email to receive a recover link"
+            android:text="@string/recover_fragment_txt_instructions"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
-            android:text="E-mail"
+            android:text="@string/recover_fragment_txt_email"
             android:textColor="@color/color_default"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +74,7 @@
             android:drawableStart="@drawable/ic_user_line"
             android:drawablePadding="8dp"
             android:drawableTint="@color/color_default"
-            android:hint="Type your e-mail"
+            android:hint="@string/recover_fragment_edit_txt_email"
             android:inputType="textWebEmailAddress"
             android:padding="14dp"
             android:textColorHint="@color/color_text_hint"
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:background="@drawable/bg_button"
-            android:text="SEND E-MAIL"
+            android:text="@string/recover_fragment_btn_txt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editEmail" />

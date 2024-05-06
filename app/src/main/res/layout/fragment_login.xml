@@ -15,7 +15,7 @@
 
         <EditText
             android:id="@+id/editEmail"
-            android:hint="E-mail"
+            android:hint="@string/login_fragment_edit_txt_email"
             android:inputType="textEmailAddress"
             android:drawableStart="@drawable/ic_email_line"
             style="@style/editLoginTextStyle"
@@ -26,7 +26,7 @@
 
         <EditText
             android:id="@+id/editPassword"
-            android:hint="Password"
+            android:hint="@string/login_fragment_edit_txt_password"
             android:inputType="textPassword"
             android:drawableStart="@drawable/ic_password_line"
             style="@style/editLoginTextStyle"
@@ -40,7 +40,7 @@
             android:id="@+id/loginBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LOGIN"
+            android:text="@string/login_fragment_txt_btn_login"
             android:background="@drawable/bg_button"
             android:layout_marginTop="16dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Create account"
+                android:text="@string/login_fragment_txt_create_account"
                 android:textColor="@color/color_default" />
 
             <TextView
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Recover account"
+                android:text="@string/login_fragment_edit_txt_recover"
                 android:textAlignment="textEnd"
                 android:textColor="@color/color_default" />
 

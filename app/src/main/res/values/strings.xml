@@ -1,11 +1,49 @@
 <resources>
     <string name="app_name">Digital Bank</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!-- SplashFragment-->
+    <!--Errors-->
+    <string name="error_txt_password">Password field is empty</string>
+    <string name="error_txt_email">Email field is empty</string>
+    <string name="error_txt_phone">Phone field is empty</string>
+    <string name="error_txt_name">Name field is empty</string>
+    <string name="error_txt_confirmation">Password and confirmation are different</string>
+
+
+    <!--SplashFragment-->
     <string name="splashFragment_logo_description">Logo</string>
 
     <!--BottomSheet-->
     <string name="bottom_sheet_txt_title">Warning</string>
     <string name="bottom_sheet_btn_title">OK</string>
+
+    <!--LoginFragment-->
+    <string name="login_fragment_edit_txt_email">E-mail</string>
+    <string name="login_fragment_edit_txt_password">Password</string>
+    <string name="login_fragment_txt_btn_login">LOGIN</string>
+    <string name="login_fragment_txt_create_account">Create account</string>
+    <string name="login_fragment_edit_txt_recover">Recover account</string>
+
+    <!--RegisterFragment-->
+    <string name="register_fragment_toolbar_txt_recover">Register account</string>
+    <string name="register_fragment_txt_name">Name</string>
+    <string name="register_fragment_edit_txt_name">Type your name</string>
+    <string name="register_fragment_txt_email">E-mail</string>
+    <string name="register_fragment_edit_txt_email">Type your e-mail</string>
+    <string name="register_fragment_txt_phone">Phone</string>
+    <string name="register_fragment_edit_txt_phone">Type your phone number</string>
+    <string name="register_fragment_txt_password">Password</string>
+    <string name="register_fragment_edit_txt_password">Create your password</string>
+    <string name="register_fragment_txt_confirm">Confirm</string>
+    <string name="register_fragment_edit_txt_confirm">Confirm your password</string>
+    <string name="register_fragment_txt_btn_register">REGISTER</string>
+    <string name="register_fragment_bottom_sheet_register_success">User successfully registered</string>
+
+    <!--RecoverFragment-->
+    <string name="recover_fragment_toolbar_txt">Password recover</string>
+    <string name="recover_fragment_txt_instructions">Type your email to receive a recover link</string>
+    <string name="recover_fragment_txt_email">E-mail</string>
+    <string name="recover_fragment_edit_txt_email">Type your e-mail</string>
+    <string name="recover_fragment_btn_txt">SEND E-MAIL</string>
+    <string name="recover_fragment_bottom_sheet_success_recover">Recovery link successful sent to your email</string>
+
 </resources>
