@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.databinding.FragmentLoginBinding
 import com.do55anto5.digitalbank.util.StateView
+import com.do55anto5.digitalbank.util.showBottomSheet
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -57,10 +58,10 @@ class LoginFragment : Fragment() {
             if (password.isNotEmpty()){
                 loginUser(email, password)
             } else {
-                Toast.makeText(requireContext(), R.string.error_txt_password, Toast.LENGTH_SHORT).show()
+                showBottomSheet(message = getString(R.string.error_txt_password))
             }
         } else {
-            Toast.makeText(requireContext(), R.string.error_txt_email, Toast.LENGTH_SHORT).show()
+            showBottomSheet(message = getString(R.string.error_txt_email))
         }
     }
 
