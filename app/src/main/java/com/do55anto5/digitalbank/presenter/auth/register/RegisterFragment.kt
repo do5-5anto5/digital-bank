@@ -1,6 +1,8 @@
 package com.do55anto5.digitalbank.presenter.auth.register
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import com.do55anto5.digitalbank.R
+import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.data.model.User
-import com.do55anto5.digitalbank.databinding.FragmentRecoverBinding
 import com.do55anto5.digitalbank.databinding.FragmentRegisterBinding
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
@@ -60,6 +61,9 @@ class RegisterFragment : Fragment() {
 
                             val user = User(name, email, phone, password)
                             registerUser(user)
+
+                            Handler(Looper.getMainLooper()).postDelayed(this::popItBack, 3000)
+
 
                         } else {
 
@@ -129,6 +133,8 @@ class RegisterFragment : Fragment() {
         }
 
     }
+
+    private fun popItBack() = findNavController().popBackStack()
 
     override fun onDestroy() {
         super.onDestroy()
