@@ -67,6 +67,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
+    //Masked Edit Text
+    implementation(libs.maskededittext)
+
     //tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

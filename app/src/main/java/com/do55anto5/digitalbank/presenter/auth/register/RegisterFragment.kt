@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
-    private val binding get()= _binding!!
+    private val binding get() = _binding!!
 
     private val registerViewModel: RegisterViewModel by viewModels()
 
@@ -50,26 +50,30 @@ class RegisterFragment : Fragment() {
     private fun validateData() {
         val name = binding.editName.text.toString().trim()
         val email = binding.editEmail.text.toString().trim()
-        val phone = binding.editPhone.text.toString().trim()
+        val phone = binding.editPhone.unMaskedText
         val password = binding.editPassword.text.toString().trim()
         val confirmPassword = binding.editConfirmPassword.text.toString().trim()
 
         if (name.isNotEmpty()) {
             if (email.isNotEmpty()) {
-                if (phone.isNotEmpty()) {
-                    if (password.isNotEmpty()) {
-                        if (confirmPassword.isNotEmpty() && confirmPassword == password) {
+                if (phone?.isNotEmpty() == true) {
+                    if (phone.length == 11) {
+                        if (password.isNotEmpty()) {
+                            if (confirmPassword.isNotEmpty() && confirmPassword == password) {
 
-                            val user = User(name, email, phone, password)
-                            registerUser(user)
+                                val user = User(name, email, phone, password)
+                                registerUser(user)
 
+                            } else {
+
+                                showBottomSheet(message = getString(R.string.error_txt_confirmation))
+                            }
                         } else {
 
-                            showBottomSheet(message = getString(R.string.error_txt_confirmation))
+                            showBottomSheet(message = getString(R.string.error_txt_empty_password))
                         }
                     } else {
-
-                        showBottomSheet(message = getString(R.string.error_txt_empty_password))
+                        showBottomSheet(message = getString(R.string.error_invalid_phone))
                     }
                 } else {
 
@@ -88,25 +92,32 @@ class RegisterFragment : Fragment() {
     private fun registerUser(user: User) {
 
         registerViewModel.register(user).observe(viewLifecycleOwner) { stateView ->
-            when(stateView) {
+            when (stateView) {
 
                 is StateView.Loading -> {
                     binding.progressBar.isVisible = true
                 }
+
                 is StateView.Success -> {
                     binding.progressBar.isVisible = false
 
-                    Toast.makeText(requireContext(),
+                    Toast.makeText(
+                        requireContext(),
                         R.string.register_fragment_bottom_sheet_register_success,
-                        Toast.LENGTH_SHORT).show()
+                        Toast.LENGTH_SHORT
+                    ).show()
 
-                   findNavController().navigate(R.id.action_global_homeFragment)
+                    findNavController().navigate(R.id.action_global_homeFragment)
                 }
-                is StateView.Error -> {
+
+                else -> {
                     binding.progressBar.isVisible = false
 
-                    showBottomSheet(message = getString(
-                        FireBaseHelper.validateError(stateView.message ?: "")))
+                    showBottomSheet(
+                        message = getString(
+                            FireBaseHelper.validateError(stateView.message ?: "")
+                        )
+                    )
                 }
             }
         }

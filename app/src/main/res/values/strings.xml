@@ -9,6 +9,7 @@
     <string name="error_txt_empty_name">Name field is empty</string>
     <string name="error_txt_confirmation">Password and confirmation are different</string>
     <string name="error_invalid_email">The email address is badly formatted.</string>
+    <string name="error_invalid_phone">Invalid phone number</string>
 
 
     <!--SplashFragment-->

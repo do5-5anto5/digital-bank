@@ -78,12 +78,13 @@
                 android:text="@string/register_fragment_txt_phone"
                 style="@style/txtRegisterLabels"/>
 
-            <EditText
+            <com.vicmikhailau.maskededittext.MaskedEditText
                 android:id="@+id/editPhone"
                 style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_phone_line"
                 android:hint="@string/register_fragment_edit_txt_phone"
-                android:inputType="phone" />
+                android:inputType="phone"
+                app:mask="(##) #####-####"/>
 
             <TextView
                 android:id="@+id/txtPassword"
