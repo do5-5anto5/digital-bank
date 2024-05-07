@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.User
 import com.do55anto5.digitalbank.databinding.FragmentRegisterBinding
+import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
 import com.do55anto5.digitalbank.util.showBottomSheet
@@ -68,19 +69,19 @@ class RegisterFragment : Fragment() {
                         }
                     } else {
 
-                        showBottomSheet(message = getString(R.string.error_txt_password))
+                        showBottomSheet(message = getString(R.string.error_txt_empty_password))
                     }
                 } else {
 
-                    showBottomSheet(message = getString(R.string.error_txt_phone))
+                    showBottomSheet(message = getString(R.string.error_txt_empty_phone))
                 }
             } else {
 
-                showBottomSheet(message = getString(R.string.error_txt_email))
+                showBottomSheet(message = getString(R.string.error_txt_empty_email))
             }
         } else {
 
-            showBottomSheet(message = getString(R.string.error_txt_name))
+            showBottomSheet(message = getString(R.string.error_txt_empty_name))
         }
     }
 
@@ -104,8 +105,8 @@ class RegisterFragment : Fragment() {
                 is StateView.Error -> {
                     binding.progressBar.isVisible = false
 
-                    Toast.makeText(requireContext(), stateView.message,
-                        Toast.LENGTH_SHORT).show()
+                    showBottomSheet(message = getString(
+                        FireBaseHelper.validateError(stateView.message ?: "")))
                 }
             }
         }

@@ -1,6 +1,7 @@
 package com.do55anto5.digitalbank.presenter.auth.login
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.databinding.FragmentLoginBinding
+import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.showBottomSheet
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,10 +60,10 @@ class LoginFragment : Fragment() {
             if (password.isNotEmpty()){
                 loginUser(email, password)
             } else {
-                showBottomSheet(message = getString(R.string.error_txt_password))
+                showBottomSheet(message = getString(R.string.error_txt_empty_password))
             }
         } else {
-            showBottomSheet(message = getString(R.string.error_txt_email))
+            showBottomSheet(message = getString(R.string.error_txt_empty_email))
         }
     }
 
@@ -81,8 +83,8 @@ class LoginFragment : Fragment() {
                 is StateView.Error -> {
                     binding.progressBar.isVisible = false
 
-                    Toast.makeText(requireContext(), stateView.message,
-                        Toast.LENGTH_SHORT).show()
+                    showBottomSheet(message = getString(
+                        FireBaseHelper.validateError(stateView.message ?: "")))
                 }
             }
         }

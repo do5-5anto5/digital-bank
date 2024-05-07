@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.databinding.FragmentRecoverBinding
+import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
 import com.do55anto5.digitalbank.util.showBottomSheet
@@ -51,7 +52,7 @@ class RecoverFragment : Fragment() {
         if (email.isNotEmpty()) {
                 recoverAccount(email)
         } else {
-            showBottomSheet(message = getString(R.string.error_txt_email))
+            showBottomSheet(message = getString(R.string.error_txt_empty_email))
         }
     }
 
@@ -73,8 +74,8 @@ class RecoverFragment : Fragment() {
                 is StateView.Error -> {
                     binding.progressBar.isVisible = false
 
-                    Toast.makeText(requireContext(), stateView.message,
-                        Toast.LENGTH_SHORT).show()
+                    showBottomSheet(message = getString(
+                        FireBaseHelper.validateError(stateView.message ?: "")))
                 }
             }
         }

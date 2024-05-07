@@ -2,11 +2,13 @@
     <string name="app_name">Digital Bank</string>
 
     <!--Errors-->
-    <string name="error_txt_password">Password field is empty</string>
-    <string name="error_txt_email">Email field is empty</string>
-    <string name="error_txt_phone">Phone field is empty</string>
-    <string name="error_txt_name">Name field is empty</string>
+    <string name="generic_error">The application has encountered an unknown error. Working on it</string>
+    <string name="error_txt_empty_password">Password field is empty</string>
+    <string name="error_txt_empty_email">Email field is empty</string>
+    <string name="error_txt_empty_phone">Phone field is empty</string>
+    <string name="error_txt_empty_name">Name field is empty</string>
     <string name="error_txt_confirmation">Password and confirmation are different</string>
+    <string name="error_invalid_email">The email address is badly formatted.</string>
 
 
     <!--SplashFragment-->
@@ -45,5 +47,6 @@
     <string name="recover_fragment_edit_txt_email">Type your e-mail</string>
     <string name="recover_fragment_btn_txt">SEND E-MAIL</string>
     <string name="recover_fragment_bottom_sheet_success_recover">Recovery link successful sent to your email</string>
+    <string name="error_invalid_credentials">Invalid credentials,\\nor tis user don\'t exists</string>
 
 </resources>

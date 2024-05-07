@@ -33,11 +33,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/recover_fragment_toolbar_txt" />
+                    android:text="@string/recover_fragment_toolbar_txt"
+                    android:textColor="@color/color_default"/>
 
             </androidx.appcompat.widget.Toolbar>
 
-            <com.google.android.material.divider.MaterialDivider
+            <androidx.drawerlayout.widget.DrawerLayout
                 style="@style/divider"/>
 
         </com.google.android.material.appbar.AppBarLayout>
