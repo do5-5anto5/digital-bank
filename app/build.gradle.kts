@@ -52,12 +52,12 @@ dependencies {
 
     //Firebase
     implementation(platform(libs.firebase.bom))
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-database")
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.database)
 
     //Dagger Hilt
     implementation(libs.hilt.android)
-    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
+    kapt(libs.hilt.android.compiler)
 
     //Navigation
     implementation(libs.androidx.navigation.fragment.ktx)
