@@ -14,11 +14,15 @@ class RegisterViewModel @Inject constructor(
     private val registerUsecase: RegisterUsecase
 ) :ViewModel() {
 
-    fun register(user: User) = liveData(Dispatchers.IO) {
+    fun register(name: String,
+                 email: String,
+                 phone: String,
+                 password: String
+    ) = liveData(Dispatchers.IO) {
         try {
             emit(StateView.Loading())
 
-            registerUsecase.invoke(user)
+            val user = registerUsecase.invoke(name, email, phone, password)
 
             emit(StateView.Success(user))
 

@@ -63,8 +63,7 @@ class RegisterFragment : Fragment() {
                         if (password.isNotEmpty()) {
                             if (confirmPassword.isNotEmpty() && confirmPassword == password) {
 
-                                val user = User(name, email, phone, password)
-                                registerUser(user)
+                                registerUser(name, email, phone, password)
 
                             } else {
 
@@ -91,9 +90,9 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun registerUser(user: User) {
+    private fun registerUser(name: String, email: String, phone: String, password: String) {
 
-        registerViewModel.register(user).observe(viewLifecycleOwner) { stateView ->
+        registerViewModel.register(name, email, phone, password).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
 
                 is StateView.Loading -> {
@@ -101,7 +100,8 @@ class RegisterFragment : Fragment() {
                 }
 
                 is StateView.Success -> {
-                    saveProfile(user)
+                    stateView.data?.let{saveProfile(it)
+                    }
                 }
 
                 else -> {
