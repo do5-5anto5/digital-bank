@@ -50,4 +50,11 @@
     <string name="recover_fragment_bottom_sheet_success_recover">Recovery link successful sent to your email</string>
     <string name="error_invalid_credentials">Invalid credentials,\\nor tis user don\'t exists</string>
 
+    <!--HomeFragment-->
+    <string name="home_fragment_menu_deposit">Deposit</string>
+    <string name="home_fragment_menu_recharge">Phone recharge</string>
+    <string name="home_fragment_menu_bank_statement">Bank statement</string>
+    <string name="home_fragment_menu_transference">Transfer</string>
+    <string name="home_fragment_menu_profile">Profile</string>
+
 </resources>
