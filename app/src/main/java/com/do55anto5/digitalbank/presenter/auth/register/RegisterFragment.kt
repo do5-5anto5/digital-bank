@@ -1,10 +1,10 @@
 package com.do55anto5.digitalbank.presenter.auth.register
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.User
 import com.do55anto5.digitalbank.databinding.FragmentRegisterBinding
+import com.do55anto5.digitalbank.presenter.profile.ProfileViewModel
 import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
@@ -24,6 +25,7 @@ class RegisterFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val registerViewModel: RegisterViewModel by viewModels()
+    private val profileViewModel: ProfileViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -99,19 +101,13 @@ class RegisterFragment : Fragment() {
                 }
 
                 is StateView.Success -> {
-                    binding.progressBar.isVisible = false
-
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.register_fragment_bottom_sheet_register_success,
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                    findNavController().navigate(R.id.action_global_homeFragment)
+                    saveProfile(user)
                 }
 
                 else -> {
                     binding.progressBar.isVisible = false
+
+                    Log.i("TAG", stateView.message ?: "")
 
                     showBottomSheet(
                         message = getString(
@@ -122,6 +118,34 @@ class RegisterFragment : Fragment() {
             }
         }
 
+    }
+
+    private fun saveProfile(user: User) {
+       profileViewModel.saveProfile(user).observe(viewLifecycleOwner) { stateView ->
+            when (stateView) {
+
+                is StateView.Loading -> {
+                }
+
+                is StateView.Success -> {
+                    binding.progressBar.isVisible = true
+
+                    findNavController().navigate(R.id.action_global_homeFragment)
+                }
+
+                else -> {
+                    binding.progressBar.isVisible = false
+
+                    Log.i("TAG", stateView.message ?: "")
+
+                        showBottomSheet(
+                            message = getString(
+                            FireBaseHelper.validateError(stateView.message ?: "")
+                        )
+                    )
+                }
+            }
+        }
     }
 
     override fun onDestroy() {
