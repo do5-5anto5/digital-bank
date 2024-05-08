@@ -11,8 +11,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.User
+import com.do55anto5.digitalbank.data.model.Wallet
 import com.do55anto5.digitalbank.databinding.FragmentRegisterBinding
 import com.do55anto5.digitalbank.presenter.profile.ProfileViewModel
+import com.do55anto5.digitalbank.presenter.wallet.WalletViewModel
 import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
@@ -26,6 +28,7 @@ class RegisterFragment : Fragment() {
 
     private val registerViewModel: RegisterViewModel by viewModels()
     private val profileViewModel: ProfileViewModel by viewModels()
+    private val walletViewModel: WalletViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -122,6 +125,36 @@ class RegisterFragment : Fragment() {
 
     private fun saveProfile(user: User) {
        profileViewModel.saveProfile(user).observe(viewLifecycleOwner) { stateView ->
+            when (stateView) {
+
+                is StateView.Loading -> {
+                }
+
+                is StateView.Success -> {
+                    initWallet()
+                }
+
+                else -> {
+                    binding.progressBar.isVisible = false
+
+                    Log.i("TAG", stateView.message ?: "")
+
+                        showBottomSheet(
+                            message = getString(
+                            FireBaseHelper.validateError(stateView.message ?: "")
+                        )
+                    )
+                }
+            }
+        }
+    }
+
+    private fun initWallet() {
+       walletViewModel.initWallet(
+           Wallet(
+           userId = FireBaseHelper.getUserId()
+       )
+       ).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
 
                 is StateView.Loading -> {
