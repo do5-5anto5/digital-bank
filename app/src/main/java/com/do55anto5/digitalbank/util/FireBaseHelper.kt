@@ -9,8 +9,10 @@ class FireBaseHelper {
 
     companion object {
 
-        lateinit var auth: FirebaseAuth
+
         fun isAuthenticated() = FirebaseAuth.getInstance().currentUser != null
+
+        fun getUserId() = FirebaseAuth.getInstance().currentUser?.uid ?: ""
 
         fun validateError(error: String): Int {
             return when {
@@ -29,8 +31,7 @@ class FireBaseHelper {
         }
 
         fun logout() {
-            auth = Firebase.auth
-            auth.signOut()
+            Firebase.auth.signOut()
         }
     }
 
