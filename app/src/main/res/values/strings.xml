@@ -2,59 +2,64 @@
     <string name="app_name">Digital Bank</string>
 
     <!--Errors-->
-    <string name="generic_error">The application has encountered an unknown error. Working on it</string>
-    <string name="error_txt_empty_password">Password field is empty</string>
-    <string name="error_txt_empty_email">Email field is empty</string>
-    <string name="error_txt_empty_phone">Phone field is empty</string>
-    <string name="error_txt_empty_name">Name field is empty</string>
-    <string name="error_txt_confirmation">Password and confirmation are different</string>
-    <string name="error_invalid_email">The email address is badly formatted.</string>
-    <string name="error_invalid_phone">Invalid phone number</string>
+    <string name="generic_error">O aplicativo encontrou um erro desconhecido. Trabalhando nisso</string>
+    <string name="error_txt_empty_password">Campo de senha vazio</string>
+    <string name="error_txt_empty_email">Campo de e-mail vazio</string>
+    <string name="error_txt_empty_phone">Campo de telefone vazio</string>
+    <string name="error_txt_empty_name">Campo de nome vazio</string>
+    <string name="error_txt_confirmation">Senha e confirmação diferentes</string>
+    <string name="error_invalid_email">O endereço de e-mail está mal formatado.</string>
+    <string name="error_invalid_phone">Número de telefone inválido</string>
+    <string name="error_invalid_credentials">Credenciais inválidas, \nou este usuário não existe</string>
 
 
     <!--SplashFragment-->
     <string name="splashFragment_logo_description">Logo</string>
 
     <!--BottomSheet-->
-    <string name="bottom_sheet_txt_title">Warning</string>
+    <string name="bottom_sheet_txt_title">Atenção</string>
     <string name="bottom_sheet_btn_title">OK</string>
 
     <!--LoginFragment-->
     <string name="login_fragment_edit_txt_email">E-mail</string>
-    <string name="login_fragment_edit_txt_password">Password</string>
-    <string name="login_fragment_txt_btn_login">LOGIN</string>
-    <string name="login_fragment_txt_create_account">Create account</string>
-    <string name="login_fragment_edit_txt_recover">Recover account</string>
+    <string name="login_fragment_edit_txt_password">Senha</string>
+    <string name="login_fragment_txt_btn_login">ENTRAR</string>
+    <string name="login_fragment_txt_create_account">Criar conta</string>
+    <string name="login_fragment_edit_txt_recover">Recuperar conta</string>
 
     <!--RegisterFragment-->
-    <string name="register_fragment_toolbar_txt_recover">Register account</string>
-    <string name="register_fragment_txt_name">Name</string>
-    <string name="register_fragment_edit_txt_name">Type your name</string>
+    <string name="register_fragment_toolbar_txt_recover">Criar conta</string>
+    <string name="register_fragment_txt_name">Nome</string>
+    <string name="register_fragment_edit_txt_name">Digite seu nome</string>
     <string name="register_fragment_txt_email">E-mail</string>
-    <string name="register_fragment_edit_txt_email">Type your e-mail</string>
-    <string name="register_fragment_txt_phone">Phone</string>
-    <string name="register_fragment_edit_txt_phone">Type your phone number</string>
-    <string name="register_fragment_txt_password">Password</string>
-    <string name="register_fragment_edit_txt_password">Create your password</string>
-    <string name="register_fragment_txt_confirm">Confirm</string>
-    <string name="register_fragment_edit_txt_confirm">Confirm your password</string>
-    <string name="register_fragment_txt_btn_register">REGISTER</string>
-    <string name="register_fragment_bottom_sheet_register_success">User successfully registered</string>
+    <string name="register_fragment_edit_txt_email">Digite seu e-mail</string>
+    <string name="register_fragment_txt_phone">Telefone</string>
+    <string name="register_fragment_edit_txt_phone">Digite seu número de telefone</string>
+    <string name="register_fragment_txt_password">Senha</string>
+    <string name="register_fragment_edit_txt_password">Crie sua senha</string>
+    <string name="register_fragment_txt_confirm">Confirmar</string>
+    <string name="register_fragment_edit_txt_confirm">Confirme sua senha</string>
+    <string name="register_fragment_txt_btn_register">CADASTRAR</string>
+    <string name="register_fragment_bottom_sheet_register_success">Usuário cadastrado com sucesso</string>
 
     <!--RecoverFragment-->
-    <string name="recover_fragment_toolbar_txt">Password recover</string>
-    <string name="recover_fragment_txt_instructions">Type your email to receive a recover link</string>
+    <string name="recover_fragment_toolbar_txt">Recuperação de senha</string>
+    <string name="recover_fragment_txt_instructions">Digite seu e-mail para receber um link de recuperação</string>
     <string name="recover_fragment_txt_email">E-mail</string>
-    <string name="recover_fragment_edit_txt_email">Type your e-mail</string>
-    <string name="recover_fragment_btn_txt">SEND E-MAIL</string>
-    <string name="recover_fragment_bottom_sheet_success_recover">Recovery link successful sent to your email</string>
-    <string name="error_invalid_credentials">Invalid credentials,\\nor tis user don\'t exists</string>
+    <string name="recover_fragment_edit_txt_email">Digite seu e-mail</string>
+    <string name="recover_fragment_btn_txt">ENVIAR E-MAIL</string>
+    <string name="recover_fragment_bottom_sheet_success_recover">Link de recuperação enviado com sucesso para o seu e-mail</string>
 
     <!--HomeFragment-->
-    <string name="home_fragment_menu_deposit">Deposit</string>
-    <string name="home_fragment_menu_recharge">Phone recharge</string>
-    <string name="home_fragment_menu_bank_statement">Bank statement</string>
-    <string name="home_fragment_menu_transference">Transfer</string>
-    <string name="home_fragment_menu_profile">Profile</string>
+    <string name="home_fragment_menu_deposit">Depositar</string>
+    <string name="home_fragment_menu_recharge">Recarga de telefone</string>
+    <string name="home_fragment_menu_bank_statement">Extrato bancário</string>
+    <string name="home_fragment_menu_transference">Transferência</string>
+    <string name="home_fragment_menu_profile">Perfil</string>
+    <string name="my_balance">Meu saldo</string>
+    <string name="balance_mock">R$ 0,00</string>
+    <string name="last_six_activities">Últimas 6 atividades</string>
+    <string name="view_all_transactions">Ver todas</string>
+
 
 </resources>
