@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
     android:background="@color/white">
 
     <TextView
@@ -16,6 +15,8 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:layout_marginVertical="16dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,14 +28,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toEndOf="@+id/txt_transaction_type"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/home_fragment_last_transaction_transference"/>
+        app:layout_constraintTop_toTopOf="@+id/txt_transaction_type"
+        tools:text="@string/home_fragment_last_transaction_transference" />
 
     <TextView
         android:id="@+id/txt_transaction_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_transaction_type"
         app:layout_constraintTop_toBottomOf="@+id/txt_transaction_description"
@@ -45,11 +46,19 @@
         android:id="@+id/txt_transaction_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="240dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txt_transaction_type"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/home_fragment_mock_last_transaction_value" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?actionBarDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
