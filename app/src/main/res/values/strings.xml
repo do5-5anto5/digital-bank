@@ -56,11 +56,14 @@
     <string name="home_fragment_menu_bank_statement">Extrato bancário</string>
     <string name="home_fragment_menu_transference">Transferência</string>
     <string name="home_fragment_menu_profile">Perfil</string>
-    <string name="my_balance">Meu saldo</string>
-    <string name="balance_mock">R$ 0,00</string>
-    <string name="last_six_activities">Últimas 6 atividades</string>
-    <string name="view_all_transactions">Ver todas</string>
-    <string name="currency_symbol">R$ %1$s</string>
+    <string name="home_fragment_last_transaction_transference">TRANSFERÊNCIA</string>
+    <string name="home_fragment_my_balance">Meu saldo</string>
+    <string name="home_fragment_balance_mock">R$ 0,00</string>
+    <string name="home_fragment_last_six_activities">Últimas 6 atividades</string>
+    <string name="home_fragment_view_all_transactions">Ver todas</string>
+    <string name="home_fragment_currency_symbol">R$ %1$s</string>
+    <string name="home_fragment_mock_last_transaction_value">R$ 60,00</string>
+    <string name="home_fragment_mock_last_transaction_date">31/12/2023</string>
 
 
 </resources>
