@@ -9,10 +9,10 @@ class GetMask {
 
     companion object {
 
-        private const val DAY_MONTH = 0
-        private const val DAY_MONTH_YEAR = 1
-        private const val HOUR_MINUTE = 2
-        private const val DAY_MONTH_YEAR_HOUR_MINUTE = 3
+        const val DAY_MONTH = 0
+        const val DAY_MONTH_YEAR = 1
+        const val HOUR_MINUTE = 2
+        const val DAY_MONTH_YEAR_HOUR_MINUTE = 3
 
         fun getFormattedDate(date: Long, type: Int): String {
             val locale = Locale("pt", "BR")
