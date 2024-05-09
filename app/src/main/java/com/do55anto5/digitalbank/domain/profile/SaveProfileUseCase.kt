@@ -4,7 +4,7 @@ import com.do55anto5.digitalbank.data.model.User
 import com.do55anto5.digitalbank.data.repository.profile.ProfileDataSourceImpl
 import javax.inject.Inject
 
-class SaveProfileUsecase @Inject constructor(
+class SaveProfileUseCase @Inject constructor(
     private val profileDataSourceImpl: ProfileDataSourceImpl
 ){
 

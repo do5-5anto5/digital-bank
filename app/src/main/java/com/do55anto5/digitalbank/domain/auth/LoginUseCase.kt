@@ -3,12 +3,12 @@ package com.do55anto5.digitalbank.domain.auth
 import com.do55anto5.digitalbank.data.repository.auth.AuthFirebaseDataSourceImpl
 import javax.inject.Inject
 
-class RecoverUsecase @Inject constructor(
+class LoginUseCase @Inject constructor(
     private val authFirebaseDataSourceImpl: AuthFirebaseDataSourceImpl
 ) {
 
-    suspend operator fun invoke(email: String) {
-        return authFirebaseDataSourceImpl.recover(email)
+    suspend operator fun invoke(email: String, password: String) {
+        return authFirebaseDataSourceImpl.login(email, password)
     }
 
 }

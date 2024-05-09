@@ -2,8 +2,7 @@ package com.do55anto5.digitalbank.presenter.auth.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.do55anto5.digitalbank.data.model.User
-import com.do55anto5.digitalbank.domain.auth.RegisterUsecase
+import com.do55anto5.digitalbank.domain.auth.RegisterUseCase
 import com.do55anto5.digitalbank.util.StateView
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val registerUsecase: RegisterUsecase
+    private val registerUseCase: RegisterUseCase
 ) :ViewModel() {
 
     fun register(name: String,
@@ -22,7 +21,7 @@ class RegisterViewModel @Inject constructor(
         try {
             emit(StateView.Loading())
 
-            val user = registerUsecase.invoke(name, email, phone, password)
+            val user = registerUseCase.invoke(name, email, phone, password)
 
             emit(StateView.Success(user))
 
