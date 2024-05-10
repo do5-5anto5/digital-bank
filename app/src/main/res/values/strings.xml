@@ -65,5 +65,11 @@
     <string name="home_fragment_mock_last_transaction_value">R$ -60,00</string>
     <string name="home_fragment_mock_last_transaction_date">31/12/2023</string>
 
+    <!--DepositFormFragment-->
+    <string name="deposit_form_fragment_txt_btn_continue">CONFIRMAR</string>
+    <string name="deposit_form_fragment_toolbar_txt_deposit">Depositar</string>
+    <string name="deposit_form_fragment_txt_instructions">Por favor, informe o valor a ser depositado</string>
+    <string name="deposit_form_fragment_label_deposit_amount">Valor do depósito</string>
+
 
 </resources>
