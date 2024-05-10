@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.do55anto5.digitalbank" />
-                  <option name="mobileSdkAppId" value="1:468214815837:android:1d918d281b5100b81001b4" />
-                  <option name="projectId" value="digital-bank-7f097" />
-                  <option name="projectNumber" value="468214815837" />
+                  <option name="mobileSdkAppId" value="1:331740256380:android:935776883f95c345b251f9" />
+                  <option name="projectId" value="db52-b011e" />
+                  <option name="projectNumber" value="331740256380" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
