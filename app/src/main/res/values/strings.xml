@@ -71,5 +71,14 @@
     <string name="deposit_form_fragment_txt_instructions">Por favor, informe o valor a ser depositado</string>
     <string name="deposit_form_fragment_label_deposit_amount">Valor do depósito</string>
 
+    <!--DepositReceiptFragment-->
+    <string name="deposit_receipt_fragment_txt_btn_continue">OK</string>
+    <string name="deposit_receipt_fragment_toolbar_txt_receipt">Recibo</string>
+    <string name="deposit_receipt_fragment_title_receipt_success">Depósito realizado\ncom sucesso</string>
+    <string name="deposit_receipt_fragment_subtitle_receipt_success">Depósito disponível em até 3 dias úteis</string>
+    <string name="deposit_receipt_fragment_txt_code_transaction">Código Transação</string>
+    <string name="deposit_receipt_fragment_txt_date_transaction">Data do depósito</string>"
+    <string name="deposit_receipt_fragment_txt_value_transaction">Valor do depósito</string>
+
 
 </resources>
