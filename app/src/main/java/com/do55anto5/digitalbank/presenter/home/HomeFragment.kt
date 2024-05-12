@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
+import com.do55anto5.digitalbank.data.enum.TransactionType
+import com.do55anto5.digitalbank.data.model.Transaction
 import com.do55anto5.digitalbank.data.model.Wallet
 import com.do55anto5.digitalbank.databinding.FragmentHomeBinding
 import com.do55anto5.digitalbank.util.GetMask
@@ -35,7 +37,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getWallet()
+        getTransactions()
 
         initListeners()
     }
@@ -46,31 +48,39 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun getWallet() {
-        homeViewModel.getWallet().observe(viewLifecycleOwner) { stateView ->
+    private fun getTransactions() {
+        homeViewModel.getTransactions().observe(viewLifecycleOwner) { stateView ->
             when(stateView) {
 
                 is StateView.Loading -> {
                 }
 
                 is StateView.Success -> {
-
-                    stateView.data?.let { showBalance(it) }
-
-
+                    showBalance(stateView.data ?: emptyList())
                 }
 
                 else -> {
-
                     showBottomSheet(message = stateView.message)
                 }
             }
         }
     }
 
-    private fun showBalance(wallet: Wallet) {
+    private fun showBalance(transactions: List<Transaction>) {
+        var cashIn = 0f
+        var cashOut = 0f
+
+        transactions.forEach{ transaction ->
+            if (transaction.type == TransactionType.CASH_IN) {
+                cashIn += transaction.amount
+            } else {
+                cashOut += transaction.amount
+            }
+        }
+
         binding.txtBalance.text = getString(
-            R.string.home_fragment_currency_symbol, GetMask.getFormattedValue(wallet.balance))
+            R.string.home_fragment_currency_symbol,
+            GetMask.getFormattedValue(cashIn - cashOut))
     }
 
     override fun onDestroy() {
