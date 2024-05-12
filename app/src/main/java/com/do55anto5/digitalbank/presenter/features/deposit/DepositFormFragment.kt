@@ -9,7 +9,10 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.do55anto5.digitalbank.R
+import com.do55anto5.digitalbank.data.enum.TransactionOperation
+import com.do55anto5.digitalbank.data.enum.TransactionType
 import com.do55anto5.digitalbank.data.model.Deposit
+import com.do55anto5.digitalbank.data.model.Transaction
 import com.do55anto5.digitalbank.databinding.FragmentDepositFormBinding
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
@@ -67,6 +70,31 @@ class DepositFormFragment : Fragment() {
             when (stateView) {
                 is StateView.Loading -> {
                     binding.progressBar.isVisible = false
+                }
+
+                is StateView.Success -> {
+                    val transaction = Transaction(
+                        id = stateView.data?.id ?: "",
+                        operation = TransactionOperation.DEPOSIT,
+                        date = stateView.data?.date ?: 0,
+                        amount = stateView.data?.amount ?: 0f,
+                        type = TransactionType.CASH_IN
+                    )
+                    saveTransaction(transaction)
+                }
+
+                is StateView.Error -> {
+                    showBottomSheet(message = stateView.message)
+                }
+            }
+
+        }
+    }
+
+    private fun saveTransaction(transaction: Transaction) {
+        depositViewModel.saveTransaction(transaction).observe(viewLifecycleOwner) { stateView ->
+            when (stateView) {
+                is StateView.Loading -> {
                 }
 
                 is StateView.Success -> {

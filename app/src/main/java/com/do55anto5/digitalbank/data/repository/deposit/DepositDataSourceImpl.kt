@@ -24,7 +24,8 @@ class DepositDataSourceImpl @Inject constructor(
                     val dateReference = depositReference
                         .child(deposit.id)
                         .child("date")
-                    dateReference.setValue(ServerValue.TIMESTAMP).addOnCompleteListener { taskUpdate ->
+                    dateReference.setValue(ServerValue.TIMESTAMP)
+                        .addOnCompleteListener { taskUpdate ->
                         if (taskUpdate.isSuccessful) {
 
                             continuation.resumeWith(Result.success(deposit))

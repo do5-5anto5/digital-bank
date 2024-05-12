@@ -4,6 +4,8 @@ import com.do55anto5.digitalbank.data.repository.auth.AuthFirebaseDataSource
 import com.do55anto5.digitalbank.data.repository.auth.AuthFirebaseDataSourceImpl
 import com.do55anto5.digitalbank.data.repository.deposit.DepositDataSource
 import com.do55anto5.digitalbank.data.repository.deposit.DepositDataSourceImpl
+import com.do55anto5.digitalbank.data.repository.transaction.TransactionDataSource
+import com.do55anto5.digitalbank.data.repository.transaction.TransactionDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -20,6 +22,11 @@ abstract class DomainModule {
 
     @Binds
     abstract fun bindDepositDataSource(
-        authFirebaseDataSourceImpl: DepositDataSourceImpl
+        depositDataSourceImpl: DepositDataSourceImpl
     ) : DepositDataSource
+
+    @Binds
+    abstract fun bindTransactionDataSource(
+        transactionDataSourceImpl: TransactionDataSourceImpl
+    ) : TransactionDataSource
 }
