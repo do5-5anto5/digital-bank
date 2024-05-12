@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.enum.TransactionOperation
 import com.do55anto5.digitalbank.data.enum.TransactionType
@@ -73,35 +74,35 @@ class DepositFormFragment : Fragment() {
                 }
 
                 is StateView.Success -> {
-                    val transaction = Transaction(
-                        id = stateView.data?.id ?: "",
-                        operation = TransactionOperation.DEPOSIT,
-                        date = stateView.data?.date ?: 0,
-                        amount = stateView.data?.amount ?: 0f,
-                        type = TransactionType.CASH_IN
-                    )
-                    saveTransaction(transaction)
+                    stateView.data?.let{ saveTransaction(it) }
                 }
 
                 is StateView.Error -> {
                     showBottomSheet(message = stateView.message)
                 }
             }
-
         }
     }
 
-    private fun saveTransaction(transaction: Transaction) {
+    private fun saveTransaction(deposit: Deposit) {
+        val transaction = Transaction(
+            id = deposit.id,
+            operation = TransactionOperation.DEPOSIT,
+            date = deposit.date,
+            amount = deposit.amount,
+            type = TransactionType.CASH_IN
+        )
+
         depositViewModel.saveTransaction(transaction).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
                 is StateView.Loading -> {
                 }
 
                 is StateView.Success -> {
-                    Toast.makeText(requireContext(),
-                        R.string.deposit_form_fragment_toast_deposit_success,
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    val action = DepositFormFragmentDirections
+                        .actionDepositFormFragmentToDepositReceiptFragment(deposit)
+
+                    findNavController().navigate(action)
                 }
 
                 is StateView.Error -> {
