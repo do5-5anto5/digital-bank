@@ -77,7 +77,7 @@
         android:label="fragment_deposit_receipt"
         tools:layout="@layout/fragment_deposit_receipt" >
         <argument
-            android:name="deposit"
-            app:argType="com.do55anto5.digitalbank.data.model.Deposit" />
+            android:name="idDeposit"
+            app:argType="string" />
     </fragment>
 </navigation>
