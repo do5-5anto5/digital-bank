@@ -71,6 +71,9 @@
     <string name="deposit_form_fragment_txt_instructions">Por favor, informe o valor a ser depositado</string>
     <string name="deposit_form_fragment_label_deposit_amount">Valor do depósito</string>
     <string name="deposit_form_fragment_toast_deposit_empty">Informe o valor do depósito</string>
+    <string name="deposit_form_fragment_deposit_operation">DEPÓSITO</string>
+    <string name="deposit_form_fragment_deposit_operation_char">D</string>
+    <string name="deposit_form_fragment_toast_deposit_success">Depósito realizado</string>
 
     <!--DepositReceiptFragment-->
     <string name="deposit_receipt_fragment_txt_btn_continue">OK</string>
@@ -80,8 +83,6 @@
     <string name="deposit_receipt_fragment_txt_code_transaction">Código Transação</string>
     <string name="deposit_receipt_fragment_txt_date_transaction">Data do depósito</string>"
     <string name="deposit_receipt_fragment_txt_value_transaction">Valor do depósito</string>
-    <string name="deposit_form_fragment_deposit_operation">DEPÓSITO</string>
-    <string name="deposit_form_fragment_deposit_operation_char">D</string>
 
 
 </resources>

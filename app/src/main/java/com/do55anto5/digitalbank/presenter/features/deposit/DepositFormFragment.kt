@@ -98,7 +98,9 @@ class DepositFormFragment : Fragment() {
                 }
 
                 is StateView.Success -> {
-                    Toast.makeText(requireContext(), "Deposit saved", Toast.LENGTH_SHORT
+                    Toast.makeText(requireContext(),
+                        R.string.deposit_form_fragment_toast_deposit_success,
+                        Toast.LENGTH_SHORT
                     ).show()
                 }
 
