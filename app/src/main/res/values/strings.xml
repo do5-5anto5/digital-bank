@@ -87,5 +87,15 @@
     <!--BankStatementFragment-->
     <string name="bank_statement_fragment_toolbar_txt_bank_statement">Extrato</string>
 
+    <!--ProfileFragment-->
+    <string name="profile_fragment_toolbar_txt_profile">Perfil</string>
+    <string name="profile_fragment_txt_name">Nome</string>
+    <string name="profile_fragment_edit_txt_name">Digite seu nome</string>
+    <string name="profile_fragment_txt_email">E-mail</string>
+    <string name="profile_fragment_edit_txt_email">Digite seu e-mail</string>
+    <string name="profile_fragment_txt_phone">Telefone</string>
+    <string name="profile_fragment_edit_txt_phone">Digite seu número de telefone</string>
+    <string name="profile_fragment_txt_btn_register">SALVAR</string>
+
 
 </resources>
