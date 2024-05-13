@@ -27,8 +27,6 @@
     dependency management.
 #### **Kotlin:**
     The official programming language for Android development, modern, concise, and secure.
-#### **Iguana 2.1:**
-    A declarative UI framework for Android that facilitates the creation of intuitive and responsive interfaces.
     
 ## **Additional Considerations**    
     For privacy reasons, google-services.json is not online repository. 
@@ -37,7 +35,13 @@
 **Future Development:** 
     The app can be expanded with new features and enhancements according to the specific needs of the user.
 
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/fd3297b4-1a63-416c-9686-534b861a0e06)
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/d08ae7f0-60a7-40d8-aa9c-102d2da58de6)
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/cd9e1bde-6d86-4ddf-b471-62d4193eff53)
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/915219b1-5aa0-4e95-a18f-4f3a3b72840b)
+# **Screenshots**
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/7e280ed9-e06a-43ff-905e-b30f04d49fc0)
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/436a313c-b584-4c05-b3c9-fd2f5e34f1fe)
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/eda26d26-4d23-49a7-accb-7e52ed3ddba0)
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/4287494b-0ee7-476b-a8f4-c14684a820c4)
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/055d0c37-6700-4def-a137-c1947072444f)
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/7cbe995d-1757-4ae1-9648-dc3e0e174289)
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/eab6d90e-e4e9-4a9e-8a1e-980a57a29277)
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/91490eaf-9130-4b35-b14f-2caf5bf5b915)
+![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/844f11ee-6407-4457-91d9-b8b545f96486)
