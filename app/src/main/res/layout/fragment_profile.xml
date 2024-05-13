@@ -52,9 +52,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                app:cardCornerRadius="100dp"
+                app:cardCornerRadius="50dp"
+                app:strokeColor="@color/white"
+                app:strokeWidth="0dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                >
 
                 <ImageView
                     android:layout_width="100dp"
@@ -99,6 +102,8 @@
                 style="@style/editRegisterTextStyle"
                 android:drawableStart="@drawable/ic_email_line"
                 tools:hint="@string/profile_fragment_edit_txt_email"
+                android:textColor="@color/color_text_hint"
+                android:drawableTint="@color/color_text_hint"
                 android:inputType="textWebEmailAddress"
                 android:enabled="false"/>
 

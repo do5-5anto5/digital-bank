@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="color_default">#31a6F6</color>
-    <color name="color_text_hint">#60B8F4</color>
+    <color name="color_text_hint">#8FCEFA</color>
     <color name="color_receipt_title">#23F6BB</color>
     <color name="color_cash_out">#EE4046</color>
     <color name="color_cash_in">#23B35A</color>

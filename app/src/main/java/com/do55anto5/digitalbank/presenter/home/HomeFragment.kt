@@ -66,6 +66,10 @@ class HomeFragment : Fragment() {
                 FireBaseHelper.logout()
                 findNavController().navigate(R.id.action_homeFragment_to_authentication)
             }
+
+            cardProfile.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+            }
         }
     }
 
