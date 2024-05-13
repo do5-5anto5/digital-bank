@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.databinding.FragmentRecoverBinding
+import com.do55anto5.digitalbank.util.BaseFragment
 import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
@@ -17,7 +16,7 @@ import com.do55anto5.digitalbank.util.showBottomSheet
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RecoverFragment : Fragment() {
+class RecoverFragment : BaseFragment() {
     private var _binding: FragmentRecoverBinding? = null
     private val binding get()= _binding!!
 
@@ -50,7 +49,11 @@ class RecoverFragment : Fragment() {
         val email = binding.editEmail.text.toString().trim()
 
         if (email.isNotEmpty()) {
-                recoverAccount(email)
+
+            hideKeyboard()
+
+            recoverAccount(email)
+
         } else {
             showBottomSheet(message = getString(R.string.error_txt_empty_email))
         }

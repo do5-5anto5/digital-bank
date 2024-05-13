@@ -1,7 +1,6 @@
 package com.do55anto5.digitalbank.presenter.features.deposit
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,13 +14,14 @@ import com.do55anto5.digitalbank.data.enum.TransactionType
 import com.do55anto5.digitalbank.data.model.Deposit
 import com.do55anto5.digitalbank.data.model.Transaction
 import com.do55anto5.digitalbank.databinding.FragmentDepositFormBinding
+import com.do55anto5.digitalbank.util.BaseFragment
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
 import com.do55anto5.digitalbank.util.showBottomSheet
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DepositFormFragment : Fragment() {
+class DepositFormFragment : BaseFragment() {
 
     private var _binding: FragmentDepositFormBinding? = null
     private val binding get() = _binding!!
@@ -55,6 +55,8 @@ class DepositFormFragment : Fragment() {
         if (amount.isNotEmpty()) {
 
             val deposit = Deposit(amount = amount.toFloat())
+
+            hideKeyboard()
 
             saveDeposit(deposit)
 

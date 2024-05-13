@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
@@ -15,6 +14,7 @@ import com.do55anto5.digitalbank.data.model.Wallet
 import com.do55anto5.digitalbank.databinding.FragmentRegisterBinding
 import com.do55anto5.digitalbank.presenter.profile.ProfileViewModel
 import com.do55anto5.digitalbank.presenter.wallet.WalletViewModel
+import com.do55anto5.digitalbank.util.BaseFragment
 import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
@@ -22,7 +22,7 @@ import com.do55anto5.digitalbank.util.showBottomSheet
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RegisterFragment : Fragment() {
+class RegisterFragment : BaseFragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
@@ -65,6 +65,8 @@ class RegisterFragment : Fragment() {
                     if (phone.length == 11) {
                         if (password.isNotEmpty()) {
                             if (confirmPassword.isNotEmpty() && confirmPassword == password) {
+
+                                hideKeyboard()
 
                                 registerUser(name, email, phone, password)
 

@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.User
 import com.do55anto5.digitalbank.databinding.FragmentProfileBinding
+import com.do55anto5.digitalbank.util.BaseFragment
 import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
@@ -19,7 +19,7 @@ import com.do55anto5.digitalbank.util.showBottomSheet
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ProfileFragment : Fragment() {
+class ProfileFragment : BaseFragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
@@ -58,6 +58,8 @@ class ProfileFragment : Fragment() {
         if (name.isNotEmpty()) {
             if (phone?.isNotEmpty() == true) {
                 if (phone.length == 11) {
+
+                    hideKeyboard()
 
                     user?.name = name
                     user?.phone = phone
