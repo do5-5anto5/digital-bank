@@ -72,7 +72,7 @@ class DepositFormFragment : BaseFragment() {
         depositViewModel.saveDeposit(deposit).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
                 is StateView.Loading -> {
-                    binding.progressBar.isVisible = false
+                    binding.progressBar.isVisible = true
                 }
 
                 is StateView.Success -> {
