@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
+import com.do55anto5.digitalbank.data.enum.TransactionOperation
 import com.do55anto5.digitalbank.data.enum.TransactionType
 import com.do55anto5.digitalbank.data.model.Transaction
 import com.do55anto5.digitalbank.databinding.FragmentHomeBinding
@@ -46,13 +47,26 @@ class HomeFragment : Fragment() {
     }
 
     private fun initListeners() {
-        binding.cardDeposit.setOnClickListener{
+        binding.cardDeposit.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_depositFormFragment)
         }
     }
 
     private fun configRecyclerView() {
         adapterTransaction = TransactionAdapter(requireContext()) { transaction ->
+            when (transaction.operation) {
+                TransactionOperation.DEPOSIT -> {
+                    val action = HomeFragmentDirections
+                        .actionHomeFragmentToDepositReceiptFragment(transaction.id, true)
+
+                    findNavController().navigate(action)
+                }
+
+                else -> {
+
+
+                }
+            }
         }
 
         with(binding.rvTransactions) {
@@ -63,7 +77,7 @@ class HomeFragment : Fragment() {
 
     private fun getTransactions() {
         homeViewModel.getTransactions().observe(viewLifecycleOwner) { stateView ->
-            when(stateView) {
+            when (stateView) {
 
                 is StateView.Loading -> {
                     binding.progressBar.isVisible = true
@@ -89,7 +103,7 @@ class HomeFragment : Fragment() {
         var cashIn = 0f
         var cashOut = 0f
 
-        transactions.forEach{ transaction ->
+        transactions.forEach { transaction ->
             if (transaction.type == TransactionType.CASH_IN) {
                 cashIn += transaction.amount
             } else {
@@ -99,7 +113,8 @@ class HomeFragment : Fragment() {
 
         binding.txtBalance.text = getString(
             R.string.home_fragment_currency_symbol,
-            GetMask.getFormattedValue(cashIn - cashOut))
+            GetMask.getFormattedValue(cashIn - cashOut)
+        )
     }
 
     override fun onDestroy() {
