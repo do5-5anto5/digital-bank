@@ -50,11 +50,11 @@ class BankStatementFragment : Fragment() {
             when (transaction.operation) {
                 TransactionOperation.DEPOSIT -> {
                     val action = BankStatementFragmentDirections
-                        .actionBankStatementFragmentToDepositReceiptFragment(transaction.id, true)
+                        .actionBankStatementFragmentToDepositReceiptFragment(
+                            transaction.id, true)
 
                     findNavController().navigate(action)
                 }
-
                 else -> {
                 }
             }

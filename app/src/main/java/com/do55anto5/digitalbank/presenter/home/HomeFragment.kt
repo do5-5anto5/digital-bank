@@ -13,6 +13,7 @@ import com.do55anto5.digitalbank.data.enum.TransactionOperation
 import com.do55anto5.digitalbank.data.enum.TransactionType
 import com.do55anto5.digitalbank.data.model.Transaction
 import com.do55anto5.digitalbank.databinding.FragmentHomeBinding
+import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.GetMask
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.showBottomSheet
@@ -59,6 +60,11 @@ class HomeFragment : Fragment() {
 
             cardBankStatement.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_bankStatementFragment)
+            }
+
+            btnLogout.setOnClickListener {
+                FireBaseHelper.logout()
+                findNavController().navigate(R.id.action_homeFragment_to_authentication)
             }
         }
     }
