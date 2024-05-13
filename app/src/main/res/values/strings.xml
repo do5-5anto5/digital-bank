@@ -96,6 +96,7 @@
     <string name="profile_fragment_txt_phone">Telefone</string>
     <string name="profile_fragment_edit_txt_phone">Digite seu número de telefone</string>
     <string name="profile_fragment_txt_btn_register">SALVAR</string>
+    <string name="profile_fragment_toast_save_profile_success">Perfil salvo com sucesso</string>
 
 
 </resources>
