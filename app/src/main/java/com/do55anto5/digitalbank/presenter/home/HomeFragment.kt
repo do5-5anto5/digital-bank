@@ -47,8 +47,19 @@ class HomeFragment : Fragment() {
     }
 
     private fun initListeners() {
-        binding.cardDeposit.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_depositFormFragment)
+        with(binding) {
+
+            cardDeposit.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_depositFormFragment)
+            }
+
+            btnShowAll.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_bankStatementFragment)
+            }
+
+            cardBankStatement.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_bankStatementFragment)
+            }
         }
     }
 

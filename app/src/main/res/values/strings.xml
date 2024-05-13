@@ -84,5 +84,8 @@
     <string name="deposit_receipt_fragment_txt_date_transaction">Data do depósito</string>"
     <string name="deposit_receipt_fragment_txt_value_transaction">Valor do depósito</string>
 
+    <!--BankStatementFragment-->
+    <string name="bank_statement_fragment_toolbar_txt_bank_statement">Extrato</string>
+
 
 </resources>
