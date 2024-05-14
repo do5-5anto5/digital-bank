@@ -5,16 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import com.do55anto5.digitalbank.R
+import com.do55anto5.digitalbank.data.enum.TransactionOperation
+import com.do55anto5.digitalbank.data.enum.TransactionType
+import com.do55anto5.digitalbank.data.model.Recharge
+import com.do55anto5.digitalbank.data.model.Transaction
 import com.do55anto5.digitalbank.databinding.FragmentRechargeFormBinding
 import com.do55anto5.digitalbank.util.BaseFragment
+import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
 import com.do55anto5.digitalbank.util.showBottomSheet
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RechargeFormFragment : BaseFragment() {
 
     private var _binding: FragmentRechargeFormBinding? = null
     private val binding get() = _binding!!
+
+    private val rechargeViewModel: RechargeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,24 +55,77 @@ class RechargeFormFragment : BaseFragment() {
 
     private fun validateRecharge() {
         val amount = binding.editAmount.text.toString().trim()
-        val phone = binding.editPhone.text.toString().trim()
+        val phone = binding.editPhone.unMaskedText
 
         if (amount.isNotEmpty()) {
-            if (phone.isNotEmpty()) {
+            if (phone?.isNotEmpty() == true) {
                 if (phone.length == 11) {
+
+                    binding.progressBar.isVisible = true
 
                     hideKeyboard()
 
-                    Toast.makeText(requireContext(), R.string.mock_message, Toast.LENGTH_SHORT)
-                        .show()
+                    val recharge = Recharge(
+                        amount = amount.toFloat(),
+                        number = phone,
+                    )
+                   saveRecharge(recharge)
+
                 } else {
-                    showBottomSheet(message = getString(R.string.error_invalid_phone))
+                    val length = phone.length
+                    showBottomSheet(message = length.toString())
                 }
             } else {
                 showBottomSheet(message = getString(R.string.error_txt_empty_phone))
             }
         } else {
             showBottomSheet(message = getString(R.string.deposit_form_fragment_bottom_sheet_amount_empty))
+        }
+    }
+
+    private fun saveRecharge(recharge: Recharge) {
+        rechargeViewModel.saveRecharge(recharge).observe(viewLifecycleOwner) { stateView ->
+            when (stateView) {
+                is StateView.Loading -> {
+                    binding.progressBar.isVisible = true
+                }
+
+                is StateView.Success -> {
+                    stateView.data?.let{ saveTransaction(it) }
+                }
+
+                else -> {
+                    showBottomSheet(message = stateView.message)
+                }
+            }
+        }
+    }
+
+    private fun saveTransaction(recharge: Recharge) {
+        val transaction = Transaction(
+            id = recharge.id,
+            operation = TransactionOperation.DEPOSIT,
+            date = recharge.date,
+            amount = recharge.amount,
+            type = TransactionType.CASH_OUT
+        )
+
+        rechargeViewModel.saveTransaction(transaction).observe(viewLifecycleOwner) { stateView ->
+            when (stateView) {
+                is StateView.Loading -> {
+                }
+
+                is StateView.Success -> {
+                    Toast.makeText(requireContext(),
+                        "Transaction well succeeded",
+                        Toast.LENGTH_SHORT).show()
+                }
+
+                else -> {
+                    showBottomSheet(message = stateView.message)
+                }
+            }
+
         }
     }
 

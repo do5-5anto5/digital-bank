@@ -7,6 +7,7 @@ enum class TransactionType {
         fun getType(operation: TransactionOperation): Char {
             return when (operation) {
                 TransactionOperation.DEPOSIT -> 'D'
+                TransactionOperation.RECHARGE -> 'R'
             }
         }
     }
