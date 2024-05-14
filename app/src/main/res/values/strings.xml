@@ -84,6 +84,16 @@
     <string name="deposit_receipt_fragment_txt_date_transaction">Data do depósito</string>"
     <string name="deposit_receipt_fragment_txt_value_transaction">Valor do depósito</string>
 
+    <!--RechargeReceiptFragment-->
+    <string name="recharge_receipt_fragment_txt_btn_continue">OK</string>
+    <string name="recharge_receipt_fragment_toolbar_txt_receipt">Recibo</string>
+    <string name="recharge_receipt_fragment_title_receipt_success">Recarga realizada\ncom sucesso</string>
+    <string name="recharge_receipt_fragment_subtitle_receipt_success">Seu crédito estará disponível em alguns minutos</string>
+    <string name="recharge_receipt_fragment_txt_code_transaction">Código Transação</string>
+    <string name="recharge_receipt_fragment_txt_date_transaction">Data da recarga</string>
+    <string name="recharge_receipt_fragment_txt_number">Número"</string>
+    <string name="recharge_receipt_fragment_txt_value_transaction">Valor da recarga</string>
+
     <!--BankStatementFragment-->
     <string name="bank_statement_fragment_toolbar_txt_bank_statement">Extrato</string>
 
