@@ -8,7 +8,7 @@ class GetDepositUseCase @Inject constructor(
     private val depositDataSourceImpl: DepositDataSourceImpl
 ) {
 
-    suspend fun invoke(id: String) : Deposit {
+    suspend operator fun invoke(id: String) : Deposit {
         return depositDataSourceImpl.getDeposit(id)
     }
 
