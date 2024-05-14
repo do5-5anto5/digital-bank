@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -61,10 +60,7 @@ class DepositFormFragment : BaseFragment() {
             saveDeposit(deposit)
 
         } else {
-            Toast.makeText(
-                requireContext(), R.string.deposit_form_fragment_toast_deposit_empty,
-                Toast.LENGTH_SHORT
-            ).show()
+            showBottomSheet(message = getString(R.string.deposit_form_fragment_message_deposit_empty))
         }
     }
 

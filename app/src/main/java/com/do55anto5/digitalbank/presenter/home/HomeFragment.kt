@@ -50,6 +50,10 @@ class HomeFragment : Fragment() {
     private fun initListeners() {
         with(binding) {
 
+            cardRecharge.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_rechargeFormFragment)
+            }
+
             cardDeposit.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_depositFormFragment)
             }

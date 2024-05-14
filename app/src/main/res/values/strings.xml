@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Digital Bank</string>
+    
+    <!--Generics-->
+    <string name="mock_message">Mock message</string>
 
     <!--Errors-->
     <string name="generic_error">Erro desconhecido. \nTente novamente mais tarde</string>
@@ -11,7 +14,6 @@
     <string name="error_invalid_email">O endereço de e-mail está mal formatado.</string>
     <string name="error_invalid_phone">Número de telefone inválido</string>
     <string name="error_invalid_credentials">Credenciais inválidas, \nou este usuário não existe</string>
-
 
     <!--SplashFragment-->
     <string name="splashFragment_logo_description">Logo</string>
@@ -70,7 +72,7 @@
     <string name="deposit_form_fragment_toolbar_txt_deposit">Depositar</string>
     <string name="deposit_form_fragment_txt_instructions">Por favor, informe o valor a ser depositado</string>
     <string name="deposit_form_fragment_label_deposit_amount">Valor do depósito</string>
-    <string name="deposit_form_fragment_toast_deposit_empty">Informe o valor do depósito</string>
+    <string name="deposit_form_fragment_message_deposit_empty">Informe o valor do depósito</string>
     <string name="deposit_form_fragment_deposit_operation">DEPÓSITO</string>
     <string name="deposit_form_fragment_deposit_operation_char">D</string>
     <string name="deposit_form_fragment_toast_deposit_success">Depósito realizado</string>
@@ -113,6 +115,7 @@
     <string name="recharge_form_fragment_toolbar_txt_recharge">Recarga</string>
     <string name="recharge_form_fragment_label_recharge_amount">Valor da recarga</string>
     <string name="recharge_form_fragment_label_recharge_phone_number">Informe o número do telefone</string>
-    <string name="recharge_form_fragment_recharge_edit_text_number">Número</string>"
+    <string name="recharge_form_fragment_recharge_edit_text_number">Número</string>
+    <string name="deposit_form_fragment_bottom_sheet_amount_empty">Insira um valor válido</string>
 
 </resources>
