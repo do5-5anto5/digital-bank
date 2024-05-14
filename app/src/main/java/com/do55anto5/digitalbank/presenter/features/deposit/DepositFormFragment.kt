@@ -75,7 +75,7 @@ class DepositFormFragment : BaseFragment() {
                     stateView.data?.let{ saveTransaction(it) }
                 }
 
-                is StateView.Error -> {
+                else -> {
                     showBottomSheet(message = stateView.message)
                 }
             }
@@ -103,7 +103,7 @@ class DepositFormFragment : BaseFragment() {
                     findNavController().navigate(action)
                 }
 
-                is StateView.Error -> {
+                else -> {
                     showBottomSheet(message = stateView.message)
                 }
             }
