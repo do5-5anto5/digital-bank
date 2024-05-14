@@ -108,5 +108,11 @@
     <string name="profile_fragment_txt_btn_register">SALVAR</string>
     <string name="profile_fragment_toast_save_profile_success">Perfil salvo com sucesso</string>
 
+    <!--RechargeFormFragment-->
+    <string name="recharge_form_fragment_txt_btn_continue">CONFIRMAR</string>
+    <string name="recharge_form_fragment_toolbar_txt_recharge">Recarga</string>
+    <string name="recharge_form_fragment_label_recharge_amount">Valor da recarga</string>
+    <string name="recharge_form_fragment_label_recharge_phone_number">Informe o número do telefone</string>
+    <string name="recharge_form_fragment_recharge_edit_text_number">Número</string>"
 
 </resources>
