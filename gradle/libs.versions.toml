@@ -9,8 +9,8 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
-lifecycleLivedataKtx = "2.7.0"
-lifecycleViewmodelKtx = "2.7.0"
+lifecycleLivedataKtx = "2.8.0"
+lifecycleViewmodelKtx = "2.8.0"
 maskededittext = "5.0.1"
 material = "1.12.0"
 activity = "1.9.0"
@@ -18,6 +18,7 @@ constraintlayout = "2.1.4"
 navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
 shapedimageview = "1.4.3"
+squareupPicasso = "2.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -39,6 +40,7 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 shapedimageview = { module = "io.woong.shapedimageview:shapedimageview", version.ref = "shapedimageview" }
+squareup-picasso = { module = "com.squareup.picasso:picasso", version.ref = "squareupPicasso" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

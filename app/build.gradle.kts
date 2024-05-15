@@ -52,28 +52,31 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    //Firebase
+    // Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
 
-    //Dagger Hilt
+    // Dagger Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
-    //Navigation
+    // Navigation
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
-    //Lifecycle
+    // Lifecycle
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
-//  https://github.com/VicMikhailau/MaskedEditText
+    // https://github.com/VicMikhailau/MaskedEditText
     implementation(libs.maskededittext)
 
-//  https://github.com/cheonjaeung/shapedimageview
+    // https://github.com/cheonjaeung/shapedimageview
     implementation (libs.shapedimageview)
+
+    // https://github.com/square/picasso
+    implementation (libs.squareup.picasso)
 
     //tests
     testImplementation(libs.junit)
