@@ -6,9 +6,10 @@ enum class TransactionOperation {
 
     companion object {
         fun getOperation(operation: TransactionOperation): String {
+
             return when (operation) {
-                DEPOSIT -> operation.name
-                RECHARGE -> operation.name
+                DEPOSIT -> "DEPÓSITO"
+                RECHARGE -> "RECARGA"
             }
         }
     }
