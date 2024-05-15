@@ -15,11 +15,12 @@ class ProfileDataSourceImpl @Inject constructor(
 
     private val profileReference = database.reference
         .child("profile")
-        .child(FireBaseHelper.getUserId())
 
     override suspend fun saveProfile(user: User) {
         return suspendCoroutine { continuation ->
-            profileReference.setValue(user).addOnCompleteListener { task ->
+            profileReference
+                .child(FireBaseHelper.getUserId())
+                .setValue(user).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     continuation.resumeWith(Result.success(Unit))
                 } else {
@@ -33,7 +34,9 @@ class ProfileDataSourceImpl @Inject constructor(
 
     override suspend fun getProfile(): User {
         return suspendCoroutine { continuation ->
-            profileReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            profileReference
+                .child(FireBaseHelper.getUserId())
+                .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
 
                     val user = snapshot.getValue(User::class.java)
@@ -48,6 +51,34 @@ class ProfileDataSourceImpl @Inject constructor(
                 }
 
             })
+
+        }
+    }
+
+    override suspend fun getProfilesList(): List<User> {
+        return suspendCoroutine { continuation ->
+            profileReference
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+
+                        val usersList = mutableListOf<User>()
+
+                        for (ds in snapshot.children) {
+                            val user = ds.getValue(User::class.java)
+                            user?.let {
+                                usersList.add(it)
+                            }
+                        }
+
+                        continuation.resumeWith(Result.success(usersList))
+
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        continuation.resumeWith(Result.failure(error.toException()))
+                    }
+
+                })
 
         }
     }
