@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="16dp">
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="16dp">
 
     <io.woong.shapedimageview.CircleImageView
         android:id="@+id/user_image"
@@ -26,7 +27,7 @@
         android:textColor="@color/white"
         android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/circleImageView"
+        app:layout_constraintStart_toEndOf="@+id/user_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Mock name" />
 

@@ -1,4 +1,4 @@
-package com.do55anto5.digitalbank.presenter.transaction
+package com.do55anto5.digitalbank.presenter.features.transfer
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData

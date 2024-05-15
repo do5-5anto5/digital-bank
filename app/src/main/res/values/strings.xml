@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Digital Bank</string>
-    
+
     <!--Generics-->
     <string name="mock_message">Mock message</string>
 
@@ -117,5 +117,9 @@
     <string name="recharge_form_fragment_label_recharge_phone_number">Informe o número do telefone</string>
     <string name="recharge_form_fragment_recharge_edit_text_number">Número</string>
     <string name="deposit_form_fragment_bottom_sheet_amount_empty">Insira um valor válido</string>
+
+    <!--TransferUserListFragment-->
+    <string name="transfer_user_list_fragment_toolbar_txt_transference">Transferência</string>
+
 
 </resources>
