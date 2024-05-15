@@ -119,7 +119,7 @@
     <string name="deposit_form_fragment_bottom_sheet_amount_empty">Insira um valor válido</string>
 
     <!--TransferUserListFragment-->
-    <string name="transfer_user_list_fragment_toolbar_txt_transference">Transferência</string>
+    <string name="transfer_user_list_fragment_toolbar_txt_transference">Usuários</string>
 
 
 </resources>

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.User
 import com.do55anto5.digitalbank.databinding.TransferUserItemBinding
 import com.squareup.picasso.Picasso
@@ -65,6 +66,8 @@ class TransferUserAdapter(
                 .get()
                 .load(user.image)
                 .into(holder.binding.userImage)
+        } else {
+            holder.binding.userImage.setImageResource(R.drawable.ic_user_fill)
         }
 
     }

@@ -70,7 +70,10 @@ class ProfileDataSourceImpl @Inject constructor(
                             }
                         }
 
-                        continuation.resumeWith(Result.success(usersList))
+                        continuation.resumeWith(Result.success(
+                            usersList.apply{
+                                removeIf { it.id == FireBaseHelper.getUserId() }
+                            }))
 
                     }
 
