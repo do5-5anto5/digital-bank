@@ -86,10 +86,13 @@ class HomeFragment : Fragment() {
 
                     findNavController().navigate(action)
                 }
+                TransactionOperation.RECHARGE -> {
+                    val action = HomeFragmentDirections
+                        .actionHomeFragmentToRechargeReceiptFragment(transaction.id, true)
 
+                    findNavController().navigate(action)
+                    }
                 else -> {
-
-
                 }
             }
         }

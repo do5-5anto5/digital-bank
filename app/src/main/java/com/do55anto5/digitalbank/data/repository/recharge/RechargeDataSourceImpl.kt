@@ -2,8 +2,11 @@ package com.do55anto5.digitalbank.data.repository.recharge
 
 import com.do55anto5.digitalbank.data.model.Recharge
 import com.do55anto5.digitalbank.util.FireBaseHelper
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ServerValue
+import com.google.firebase.database.ValueEventListener
 import javax.inject.Inject
 import kotlin.coroutines.suspendCoroutine
 
@@ -46,6 +49,26 @@ class RechargeDataSourceImpl @Inject constructor(
     }
 
     override suspend fun getRecharge(id: String): Recharge {
-        TODO("Not yet implemented")
+        return suspendCoroutine { continuation ->
+            rechargeReference
+                .child(id)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val recharge = snapshot.getValue(Recharge::class.java)
+
+                        recharge?.let {
+                            continuation.resumeWith(Result.success(it))
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        error.toException().let {
+                            continuation.resumeWith(Result.failure(it))
+                        }
+
+                    }
+                })
+
+        }
     }
 }

@@ -55,6 +55,13 @@ class BankStatementFragment : Fragment() {
 
                     findNavController().navigate(action)
                 }
+                TransactionOperation.RECHARGE -> {
+                    val action = BankStatementFragmentDirections
+                        .actionBankStatementFragmentToRechargeReceiptFragment(
+                            transaction.id, true)
+
+                    findNavController().navigate(action)
+                }
                 else -> {
                 }
             }
@@ -77,7 +84,7 @@ class BankStatementFragment : Fragment() {
                 is StateView.Success -> {
                     binding.progressBar.isVisible = false
 
-                    adapterTransaction.submitList(stateView.data?.reversed()?.take(6))
+                    adapterTransaction.submitList(stateView.data?.reversed())
                 }
 
                 else -> {

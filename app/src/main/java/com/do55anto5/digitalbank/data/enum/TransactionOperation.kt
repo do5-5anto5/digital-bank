@@ -9,7 +9,7 @@ enum class TransactionOperation {
 
             return when (operation) {
                 DEPOSIT -> "DEPÓSITO"
-                RECHARGE -> "RECARGA"
+                RECHARGE -> "RECARGA DE CELULAR"
             }
         }
     }

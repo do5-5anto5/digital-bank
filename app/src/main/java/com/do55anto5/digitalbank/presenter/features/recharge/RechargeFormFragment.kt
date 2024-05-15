@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.enum.TransactionOperation
 import com.do55anto5.digitalbank.data.enum.TransactionType
@@ -104,7 +104,7 @@ class RechargeFormFragment : BaseFragment() {
     private fun saveTransaction(recharge: Recharge) {
         val transaction = Transaction(
             id = recharge.id,
-            operation = TransactionOperation.DEPOSIT,
+            operation = TransactionOperation.RECHARGE,
             date = recharge.date,
             amount = recharge.amount,
             type = TransactionType.CASH_OUT
@@ -116,9 +116,10 @@ class RechargeFormFragment : BaseFragment() {
                 }
 
                 is StateView.Success -> {
-                    Toast.makeText(requireContext(),
-                        "Transaction well succeeded",
-                        Toast.LENGTH_SHORT).show()
+                    val action = RechargeFormFragmentDirections.
+                    actionRechargeFormFragmentToRechargeReceiptFragment(recharge.id, false)
+
+                    findNavController().navigate(action)
                 }
 
                 else -> {
