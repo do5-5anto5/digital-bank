@@ -69,8 +69,11 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
-    //Masked Edit Text
+//  https://github.com/VicMikhailau/MaskedEditText
     implementation(libs.maskededittext)
+
+//  https://github.com/cheonjaeung/shapedimageview
+    implementation (libs.shapedimageview)
 
     //tests
     testImplementation(libs.junit)
