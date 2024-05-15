@@ -56,8 +56,8 @@
     <string name="home_fragment_menu_deposit">Depositar</string>
     <string name="home_fragment_menu_recharge">Recarga de telefone</string>
     <string name="home_fragment_menu_bank_statement">Extrato bancário</string>
-    <string name="home_fragment_menu_transference">Transferência</string>
-    <string name="home_fragment_menu_profile">Perfil</string>
+    <string name="home_fragment_menu_transference">Transferir</string>
+    <string name="home_fragment_menu_profile">Editar Perfil</string>
     <string name="home_fragment_last_transaction_transference">TRANSFERÊNCIA</string>
     <string name="home_fragment_my_balance">Meu saldo</string>
     <string name="home_fragment_balance_mock">R$ 0,00</string>
@@ -100,7 +100,7 @@
     <string name="bank_statement_fragment_toolbar_txt_bank_statement">Extrato</string>
 
     <!--ProfileFragment-->
-    <string name="profile_fragment_toolbar_txt_profile">Perfil</string>
+    <string name="profile_fragment_toolbar_txt_profile">Editar Perfil</string>
     <string name="profile_fragment_txt_name">Nome</string>
     <string name="profile_fragment_edit_txt_name">Digite seu nome</string>
     <string name="profile_fragment_txt_email">E-mail</string>
