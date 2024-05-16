@@ -78,7 +78,10 @@ dependencies {
     // https://github.com/square/picasso
     implementation (libs.squareup.picasso)
 
-    //tests
+    // https://github.com/ParkSangGwon/TedPermission
+    implementation(libs.tedpermission.normal)
+
+    // tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
