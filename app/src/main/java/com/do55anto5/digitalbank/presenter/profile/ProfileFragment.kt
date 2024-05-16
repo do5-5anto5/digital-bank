@@ -16,7 +16,10 @@ import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
 import com.do55anto5.digitalbank.util.showBottomSheet
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.normal.TedPermission
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class ProfileFragment : BaseFragment() {
@@ -49,6 +52,67 @@ class ProfileFragment : BaseFragment() {
 
     private fun initListeners() {
         binding.btnSave.setOnClickListener { if (user != null) validateData() }
+    }
+
+    private fun checkCameraPermission() {
+
+        val permissionlistener: PermissionListener = object : PermissionListener {
+            override fun onPermissionGranted() {
+                Toast.makeText(
+                    requireContext(),
+                    R.string.dialog_permission_granted_title, Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            override fun onPermissionDenied(deniedPermissions: List<String>) {
+                Toast.makeText(
+                    requireContext(),
+                    R.string.dialog_permission_denied_title, Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+        showDialogPermissionDenied(
+            permissionListener = permissionlistener,
+            permission = android.Manifest.permission.CAMERA,
+            message = getString(R.string.dialog_permission_camera_access_denied)
+        )
+    }
+
+    private fun checkGalleryPermission() {
+        val permissionlistener: PermissionListener = object : PermissionListener {
+            override fun onPermissionGranted() {
+
+            }
+
+            override fun onPermissionDenied(deniedPermissions: List<String>) {
+                Toast.makeText(
+                    requireContext(),
+                    "Permission Denied", Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+        showDialogPermissionDenied(
+            permissionListener = permissionlistener,
+            permission = android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            message = getString(R.string.dialog_permission_gallery_access_denied)
+        )
+    }
+
+    private fun showDialogPermissionDenied(
+        permissionListener: PermissionListener,
+        permission: String,
+        message: String
+    ) {
+        TedPermission.create()
+            .setPermissionListener(permissionListener)
+            .setDeniedTitle(getText(R.string.dialog_permission_denied_title))
+            .setDeniedMessage(message)
+            .setDeniedCloseButtonText(getText(R.string.dialog_permission_denied_btn_close))
+            .setGotoSettingButtonText(getText(R.string.dialog_permission_denied_btn_setting))
+            .setPermissions(permission)
+            .check()
     }
 
     private fun validateData() {
