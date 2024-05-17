@@ -7,6 +7,7 @@ import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.FileProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.do55anto5.digitalbank.R
@@ -28,6 +30,11 @@ import com.do55anto5.digitalbank.util.showBottomSheet
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 
 @AndroidEntryPoint
@@ -46,7 +53,7 @@ class ProfileFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding =  FragmentProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -61,7 +68,7 @@ class ProfileFragment : BaseFragment() {
 
         initListeners()
 
-        checkGalleryPermission()
+        checkCameraPermission()
     }
 
     private fun initListeners() {
@@ -72,10 +79,7 @@ class ProfileFragment : BaseFragment() {
 
         val permissionlistener: PermissionListener = object : PermissionListener {
             override fun onPermissionGranted() {
-                Toast.makeText(
-                    requireContext(),
-                    R.string.dialog_permission_granted_title, Toast.LENGTH_SHORT
-                ).show()
+               openCamera()
             }
 
             override fun onPermissionDenied(deniedPermissions: List<String>) {
@@ -109,12 +113,10 @@ class ProfileFragment : BaseFragment() {
 
         showDialogPermissionDenied(
             permissionListener = permissionListener,
-            permission = android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            permission = android.Manifest.permission.READ_MEDIA_IMAGES,
             message = getString(R.string.dialog_permission_gallery_access_denied)
         )
     }
-
-
 
     private fun showDialogPermissionDenied(
         permissionListener: PermissionListener,
@@ -145,6 +147,51 @@ class ProfileFragment : BaseFragment() {
             imageProfile = selectedImage.toString()
 
             binding.imgProfile.setImageBitmap(selectedImage?.let { getBitmap(it) })
+        }
+    }
+
+    private fun openCamera() {
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+
+        var photoFile: File? = null
+        try {
+            photoFile = createImageFile()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        if (photoFile != null) {
+            val photoUri = FileProvider.getUriForFile(
+                requireContext(),
+                "androidx.core.content.FileProvider",
+                photoFile
+            )
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
+            cameraLauncher.launch(takePictureIntent)
+        }
+    }
+
+    private fun createImageFile(): File {
+        val timeStamp = SimpleDateFormat("yyyy-MM-dd_HH:mm:SS", Locale("pt", "BR")).format(Date())
+        val imageFileName = "JPEG_" + timeStamp + "_"
+        val storageDir = requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val image = File.createTempFile(
+            imageFileName,
+            ".jpg",
+            storageDir
+        )
+
+        currentPhotoPath = image.absolutePath
+        return image
+    }
+
+    private var cameraLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val file = File(currentPhotoPath!!)
+            binding.imgProfile.setImageURI(Uri.fromFile(file))
+            imageProfile = file.toURI().toString()
         }
     }
 
@@ -237,9 +284,11 @@ class ProfileFragment : BaseFragment() {
                     is StateView.Success -> {
                         binding.progressBar.isVisible = false
 
-                        Toast.makeText(requireContext(),
+                        Toast.makeText(
+                            requireContext(),
                             R.string.profile_fragment_toast_save_profile_success,
-                            Toast.LENGTH_SHORT).show()
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
 
                     else -> {
