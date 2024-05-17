@@ -117,6 +117,10 @@
     <string name="profile_fragment_edit_txt_phone">Digite seu número de telefone</string>
     <string name="profile_fragment_txt_btn_register">SALVAR</string>
     <string name="profile_fragment_toast_save_profile_success">Perfil salvo com sucesso</string>
+    <string name="profile_fragment_bottom_sheet_title">Adicionar imagem ao perfil</string>
+    <string name="profile_fragment_bottom_sheet_message">Escolha uma opção para adicionar\numa imagem ao perfil</string>
+    <string name="profile_fragment_bottom_sheet_btn_camera">CÂMERA</string>
+    <string name="profile_fragment_bottom_sheet_btn_gallery">GALERIA</string>
 
     <!--RechargeFormFragment-->
     <string name="recharge_form_fragment_txt_btn_continue">CONFIRMAR</string>

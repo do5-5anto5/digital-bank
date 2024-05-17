@@ -21,12 +21,14 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.User
+import com.do55anto5.digitalbank.databinding.BottomSheetProfileImageBinding
 import com.do55anto5.digitalbank.databinding.FragmentProfileBinding
 import com.do55anto5.digitalbank.util.BaseFragment
 import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
 import com.do55anto5.digitalbank.util.showBottomSheet
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
 import dagger.hilt.android.AndroidEntryPoint
@@ -67,17 +69,37 @@ class ProfileFragment : BaseFragment() {
         getProfile()
 
         initListeners()
-
-        checkCameraPermission()
     }
 
     private fun initListeners() {
+        binding.imgProfile.setOnClickListener { showBottomSheetProfileImage() }
         binding.btnSave.setOnClickListener { if (user != null) validateData() }
+    }
+
+    private fun showBottomSheetProfileImage() {
+
+        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        val bottomSheetBinding: BottomSheetProfileImageBinding =
+            BottomSheetProfileImageBinding.inflate(layoutInflater, null, false)
+
+        bottomSheetBinding.btnCamera.setOnClickListener {
+            checkCameraPermission()
+            bottomSheetDialog.dismiss()
+        }
+
+        bottomSheetBinding.btnGallery.setOnClickListener {
+            checkGalleryPermission()
+            bottomSheetDialog.dismiss()
+        }
+
+        bottomSheetDialog.setContentView(bottomSheetBinding.root)
+        bottomSheetDialog.show()
+
     }
 
     private fun checkCameraPermission() {
 
-        val permissionlistener: PermissionListener = object : PermissionListener {
+        val permissionListener: PermissionListener = object : PermissionListener {
             override fun onPermissionGranted() {
                openCamera()
             }
@@ -91,7 +113,7 @@ class ProfileFragment : BaseFragment() {
         }
 
         showDialogPermissionDenied(
-            permissionListener = permissionlistener,
+            permissionListener = permissionListener,
             permission = android.Manifest.permission.CAMERA,
             message = getString(R.string.dialog_permission_camera_access_denied)
         )

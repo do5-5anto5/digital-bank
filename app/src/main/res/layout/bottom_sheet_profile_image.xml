@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp"
+    android:paddingTop="20sp"
+    android:paddingHorizontal="20dp"
     android:background="@drawable/bg_bottom_sheet">
 
     <TextView
@@ -12,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        tools:text="Title"
+        android:text="@string/profile_fragment_bottom_sheet_title"
         android:textColor="@color/color_default"/>
 
     <com.google.android.material.divider.MaterialDivider
@@ -24,14 +25,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        tools:text="Message"/>
+        android:text="@string/profile_fragment_bottom_sheet_message"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnOk"
+        android:id="@+id/btnCamera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="OK"
+        android:text="@string/profile_fragment_bottom_sheet_btn_camera"
         android:background="@drawable/bg_button"
         android:layout_marginTop="16dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_fragment_bottom_sheet_btn_gallery"
+        android:background="@drawable/bg_button"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"/>
 
 </LinearLayout>
