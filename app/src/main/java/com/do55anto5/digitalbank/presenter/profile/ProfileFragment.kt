@@ -135,7 +135,7 @@ class ProfileFragment : BaseFragment() {
 
         showDialogPermissionDenied(
             permissionListener = permissionListener,
-            permission = android.Manifest.permission.READ_MEDIA_IMAGES,
+            permission = galleryPermissionString,
             message = getString(R.string.dialog_permission_gallery_access_denied)
         )
     }
@@ -153,6 +153,12 @@ class ProfileFragment : BaseFragment() {
             .setGotoSettingButtonText(getText(R.string.dialog_permission_denied_btn_setting))
             .setPermissions(permission)
             .check()
+    }
+
+    private val galleryPermissionString =  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        android.Manifest.permission.READ_MEDIA_IMAGES
+    } else {
+        android.Manifest.permission.READ_EXTERNAL_STORAGE
     }
 
     private fun openGallery() {
