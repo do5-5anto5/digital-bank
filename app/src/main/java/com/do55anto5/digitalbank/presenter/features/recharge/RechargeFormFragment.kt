@@ -14,6 +14,7 @@ import com.do55anto5.digitalbank.data.model.Recharge
 import com.do55anto5.digitalbank.data.model.Transaction
 import com.do55anto5.digitalbank.databinding.FragmentRechargeFormBinding
 import com.do55anto5.digitalbank.util.BaseFragment
+import com.do55anto5.digitalbank.util.MoneyTextWatcher
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
 import com.do55anto5.digitalbank.util.showBottomSheet
@@ -44,6 +45,9 @@ class RechargeFormFragment : BaseFragment() {
     }
 
     private fun initListeners() {
+
+        with(binding.editAmount){ addTextChangedListener(MoneyTextWatcher(this)) }
+
         with(binding) {
 
             btnContinue.setOnClickListener {

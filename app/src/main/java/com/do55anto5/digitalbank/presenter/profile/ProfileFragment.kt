@@ -31,6 +31,7 @@ import com.do55anto5.digitalbank.util.showBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
@@ -378,7 +379,16 @@ class ProfileFragment : BaseFragment() {
         Picasso.get()
             .load(user?.image)
             .fit().centerCrop()
-            .into(binding.userImage)
+            .into(binding.userImage, object : Callback {
+                override fun onSuccess() {
+                    binding.progressImage.isVisible = false
+                    binding.userImage.isVisible = true
+                }
+
+                override fun onError(e: java.lang.Exception?) {
+                    Toast.makeText(requireContext(), R.string.generic_error, Toast.LENGTH_SHORT).show()
+                }
+            })
 
         with(binding) {
             editName.setText(user?.name)

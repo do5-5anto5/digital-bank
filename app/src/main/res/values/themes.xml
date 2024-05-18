@@ -6,6 +6,10 @@
         <item name="android:windowBackground">@color/color_default</item>
     </style>
 
+    <style name="Theme.Dark" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorControlActivated">@color/white</item>
+    </style>
+
     <style name="editLoginTextStyle">
         <item name="android:background">@drawable/bg_edit_text</item>
         <item name="android:padding">14dp</item>

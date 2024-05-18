@@ -2,6 +2,7 @@ package com.do55anto5.digitalbank.presenter.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
+import com.do55anto5.digitalbank.domain.profile.GetProfileUseCase
 import com.do55anto5.digitalbank.domain.transaction.GetTransactionsUseCase
 import com.do55anto5.digitalbank.domain.wallet.GetWalletUseCase
 import com.do55anto5.digitalbank.util.StateView
@@ -12,7 +13,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getWalletUseCase: GetWalletUseCase,
-    private val getTransactionsUseCase: GetTransactionsUseCase
+    private val getTransactionsUseCase: GetTransactionsUseCase,
+    private val getProfileUseCase: GetProfileUseCase
 ) : ViewModel() {
 
     fun getWallet() = liveData(Dispatchers.IO) {
@@ -35,6 +37,19 @@ class HomeViewModel @Inject constructor(
             val transactions = getTransactionsUseCase.invoke()
 
             emit(StateView.Success(transactions))
+
+        } catch (e: Exception) {
+            emit(StateView.Error(e.message))
+        }
+    }
+
+    fun getProfile() = liveData(Dispatchers.IO) {
+        try {
+            emit(StateView.Loading())
+
+            val user = getProfileUseCase.invoke()
+
+            emit(StateView.Success(user))
 
         } catch (e: Exception) {
             emit(StateView.Error(e.message))

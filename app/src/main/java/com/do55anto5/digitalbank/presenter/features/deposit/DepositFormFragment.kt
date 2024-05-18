@@ -14,6 +14,7 @@ import com.do55anto5.digitalbank.data.model.Deposit
 import com.do55anto5.digitalbank.data.model.Transaction
 import com.do55anto5.digitalbank.databinding.FragmentDepositFormBinding
 import com.do55anto5.digitalbank.util.BaseFragment
+import com.do55anto5.digitalbank.util.MoneyTextWatcher
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
 import com.do55anto5.digitalbank.util.showBottomSheet
@@ -45,6 +46,8 @@ class DepositFormFragment : BaseFragment() {
     }
 
     private fun initListeners() {
+        with(binding.editAmount){ addTextChangedListener(MoneyTextWatcher(this)) }
+
         binding.btnContinue.setOnClickListener { validateDeposit() }
     }
 

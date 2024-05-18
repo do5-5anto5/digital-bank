@@ -3,6 +3,7 @@
 
     <!--Generics-->
     <string name="mock_message">Mock message</string>
+    <string name="value_zero_mock">R$ 0,00</string>
 
     <!--Errors-->
     <string name="generic_error">Erro desconhecido. \nTente novamente mais tarde</string>
