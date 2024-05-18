@@ -31,6 +31,7 @@ import com.do55anto5.digitalbank.util.showBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
+import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import java.io.IOException
@@ -72,8 +73,16 @@ class ProfileFragment : BaseFragment() {
     }
 
     private fun initListeners() {
-        binding.imgProfile.setOnClickListener { showBottomSheetProfileImage() }
-        binding.btnSave.setOnClickListener { if (user != null) validateData() }
+        binding.userImage.setOnClickListener { showBottomSheetProfileImage() }
+        binding.btnSave.setOnClickListener {
+            if (user != null) {
+                if (imageProfile != null) {
+                    saveImageProfile()
+                } else {
+                    validateData()
+                }
+            }
+        }
     }
 
     private fun showBottomSheetProfileImage() {
@@ -97,30 +106,11 @@ class ProfileFragment : BaseFragment() {
 
     }
 
-    private fun saveImageProfile() {
-        imageProfile?.let {
-            profileViewModel.saveImageProfile(it).observe(viewLifecycleOwner) { stateView ->
-                when(stateView) {
-                    is StateView.Loading -> {
-                        binding.progressBar.isVisible = true
-                    }
-                    is StateView.Success -> {
-
-                    }
-                    is StateView.Error -> {
-                        binding.progressBar.isVisible = false
-                        showBottomSheet(message = stateView.message)
-                    }
-                }
-            }
-        }
-    }
-
     private fun checkCameraPermission() {
 
         val permissionListener: PermissionListener = object : PermissionListener {
             override fun onPermissionGranted() {
-               openCamera()
+                openCamera()
             }
 
             override fun onPermissionDenied(deniedPermissions: List<String>) {
@@ -174,11 +164,33 @@ class ProfileFragment : BaseFragment() {
             .check()
     }
 
-    private val galleryPermissionString =  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        android.Manifest.permission.READ_MEDIA_IMAGES
-    } else {
-        android.Manifest.permission.READ_EXTERNAL_STORAGE
+    private fun saveImageProfile() {
+        imageProfile?.let {
+            profileViewModel.saveImageProfile(it).observe(viewLifecycleOwner) { stateView ->
+                when (stateView) {
+                    is StateView.Loading -> {
+                        binding.progressBar.isVisible = true
+                    }
+
+                    is StateView.Success -> {
+                        saveProfile(stateView.data)
+                    }
+
+                    is StateView.Error -> {
+                        binding.progressBar.isVisible = false
+                        showBottomSheet(message = stateView.message)
+                    }
+                }
+            }
+        }
     }
+
+    private val galleryPermissionString =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            android.Manifest.permission.READ_MEDIA_IMAGES
+        } else {
+            android.Manifest.permission.READ_EXTERNAL_STORAGE
+        }
 
     private fun openGallery() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -193,7 +205,7 @@ class ProfileFragment : BaseFragment() {
             val selectedImage = result.data!!.data
             imageProfile = selectedImage.toString()
 
-            binding.imgProfile.setImageBitmap(selectedImage?.let { getBitmap(it) })
+            binding.userImage.setImageBitmap(selectedImage?.let { getBitmap(it) })
         }
     }
 
@@ -204,7 +216,8 @@ class ProfileFragment : BaseFragment() {
         try {
             photoFile = createImageFile()
         } catch (e: IOException) {
-            e.printStackTrace()
+            Toast.makeText(requireContext(), R.string.error_cannot_save_image, Toast.LENGTH_SHORT)
+                .show()
         }
 
         if (photoFile != null) {
@@ -237,7 +250,7 @@ class ProfileFragment : BaseFragment() {
     ) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
             val file = File(currentPhotoPath!!)
-            binding.imgProfile.setImageURI(Uri.fromFile(file))
+            binding.userImage.setImageURI(Uri.fromFile(file))
             imageProfile = file.toURI().toString()
         }
     }
@@ -254,7 +267,9 @@ class ProfileFragment : BaseFragment() {
                 ImageDecoder.decodeBitmap(source)
             }
         } catch (e: Exception) {
-            e.printStackTrace()
+            Toast.makeText(requireContext(), R.string.error_cannot_load_image, Toast.LENGTH_SHORT)
+                .show()
+
         }
 
         return bitmap
@@ -317,9 +332,13 @@ class ProfileFragment : BaseFragment() {
         }
     }
 
-    private fun saveProfile() {
+    private fun saveProfile(urlImage: String? = null) {
 
         user?.let {
+
+            if (urlImage != null) {
+                it.image = urlImage
+            }
 
             profileViewModel.saveProfile(it).observe(viewLifecycleOwner) { stateView ->
                 when (stateView) {
@@ -355,6 +374,17 @@ class ProfileFragment : BaseFragment() {
     }
 
     private fun configData() {
+        try {
+            user?.image?.let {
+                Picasso.get()
+                    .load(it)
+                    .fit().centerCrop()
+                    .into(binding.userImage)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
         with(binding) {
             editName.setText(user?.name)
             editPhone.setText(user?.phone)

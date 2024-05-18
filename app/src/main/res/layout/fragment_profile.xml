@@ -47,25 +47,16 @@
             android:paddingHorizontal="24dp"
             android:paddingVertical="16dp">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:cardCornerRadius="50dp"
-                app:strokeColor="@color/color_default"
-                app:strokeWidth="1dp"
+            <io.woong.shapedimageview.CircleImageView
+                android:id="@+id/user_image"
+                tools:src="@drawable/ic_user_line_blue"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                app:border_size="2dp"
+                app:border_color="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                >
-
-                <ImageView
-                    android:id="@+id/imgProfile"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_user_line_blue" />
-
-            </com.google.android.material.card.MaterialCardView>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txtName"

@@ -14,6 +14,8 @@
     <string name="error_invalid_email">O endereço de e-mail está mal formatado.</string>
     <string name="error_invalid_phone">Número de telefone inválido</string>
     <string name="error_invalid_credentials">Credenciais inválidas, \nou este usuário não existe</string>
+    <string name="error_cannot_save_image">Não foi possível salvar a imagem</string>
+    <string name="error_cannot_load_image">Não foi possível carregar a imagem</string>
 
     <!--permission dialog strings-->
     <string name="dialog_permission_granted_title">Permissão aceita</string>
