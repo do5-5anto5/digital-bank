@@ -11,11 +11,14 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.do55anto5.digitalbank.R
+import com.do55anto5.digitalbank.data.model.User
 import com.do55anto5.digitalbank.databinding.FragmentTransferUserListBinding
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
 import com.do55anto5.digitalbank.util.showBottomSheet
+import com.ferfalk.simplesearchview.SimpleSearchView
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class TransferUserListFragment : Fragment() {
@@ -24,6 +27,8 @@ class TransferUserListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var adapterTransferUser: TransferUserAdapter
+
+    private var profilesList: List<User> = listOf()
 
     private val transferUserListViewModel: TransferUserListViewModel by viewModels()
 
@@ -48,6 +53,50 @@ class TransferUserListFragment : Fragment() {
         initRecyclerView()
 
         getProfilesList()
+
+        configSearchView()
+    }
+
+    private fun configSearchView() {
+        binding.searchView.setOnQueryTextListener(object : SimpleSearchView.OnQueryTextListener {
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                return if (newText.isNotEmpty()) {
+                    val newList = profilesList.filter { it.name.contains(newText, true) }
+                    adapterTransferUser.submitList(newList)
+                    true
+
+                } else {
+                    adapterTransferUser.submitList(profilesList)
+                    false
+                }
+            }
+
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextCleared(): Boolean {
+                return false
+            }
+        })
+
+        binding.searchView.setOnSearchViewListener(
+            object : SimpleSearchView.SearchViewListener {
+                override fun onSearchViewShown() {
+                }
+
+                override fun onSearchViewClosed() {
+                    adapterTransferUser.submitList(profilesList)
+                }
+
+                override fun onSearchViewShownAnimation() {
+                }
+
+                override fun onSearchViewClosedAnimation() {
+                }
+            })
     }
 
     private fun getProfilesList() {
@@ -58,9 +107,10 @@ class TransferUserListFragment : Fragment() {
                 }
 
                 is StateView.Success -> {
-                    binding.progressBar.isVisible = false
-
+                    profilesList = stateView.data ?: emptyList()
                     adapterTransferUser.submitList(stateView.data)
+
+                    binding.progressBar.isVisible = false
                 }
 
                 is StateView.Error -> {
