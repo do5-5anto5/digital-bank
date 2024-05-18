@@ -82,6 +82,9 @@ dependencies {
     // https://github.com/ParkSangGwon/TedPermission
     implementation(libs.tedpermission.normal)
 
+    // https://github.com/Ferfalk/SimpleSearchView
+    implementation (libs.ferfalk.simplesearchview)
+
     // tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

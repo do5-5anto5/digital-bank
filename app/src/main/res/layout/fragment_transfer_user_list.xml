@@ -15,20 +15,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/txtToolbar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/transfer_user_list_fragment_toolbar_txt_transference"
-                android:textColor="@color/white" />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        </androidx.appcompat.widget.Toolbar>
+                <TextView
+                    android:id="@+id/txtToolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/transfer_user_list_fragment_toolbar_txt_transference"
+                    android:textColor="@color/white" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.ferfalk.simplesearchview.SimpleSearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/SearchViewWhiteTheme"/>
+
+        </FrameLayout>
 
         <View
             android:id="@+id/view"

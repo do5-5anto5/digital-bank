@@ -18,6 +18,7 @@ constraintlayout = "2.1.4"
 navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
 shapedimageview = "1.4.3"
+simplesearchviewVersion = "0.2.1"
 squareupPicasso = "2.8"
 tedpermissionNormal = "3.3.0"
 
@@ -25,6 +26,7 @@ tedpermissionNormal = "3.3.0"
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+ferfalk-simplesearchview = { module = "com.github.Ferfalk:SimpleSearchView", version.ref = "simplesearchviewVersion" }
 firebase-auth = { module = "com.google.firebase:firebase-auth" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-database = { module = "com.google.firebase:firebase-database" }

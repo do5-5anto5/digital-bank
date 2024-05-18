@@ -2,12 +2,15 @@ package com.do55anto5.digitalbank.presenter.features.transfer
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.databinding.FragmentTransferUserListBinding
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
@@ -23,6 +26,11 @@ class TransferUserListFragment : Fragment() {
     private lateinit var adapterTransferUser: TransferUserAdapter
 
     private val transferUserListViewModel: TransferUserListViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,6 +81,13 @@ class TransferUserListFragment : Fragment() {
             setHasFixedSize(true)
             adapter = adapterTransferUser
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_search, menu)
+        val item = menu.findItem(R.id.action_search)
+        binding.searchView.setMenuItem(item)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onDestroyView() {
