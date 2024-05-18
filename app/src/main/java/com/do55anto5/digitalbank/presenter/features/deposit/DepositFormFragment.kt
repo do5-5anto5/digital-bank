@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
@@ -46,13 +48,30 @@ class DepositFormFragment : BaseFragment() {
     }
 
     private fun initListeners() {
-        with(binding.editAmount){ addTextChangedListener(MoneyTextWatcher(this)) }
+        with(binding.editAmount) {
+            addTextChangedListener(MoneyTextWatcher(this))
+
+            addTextChangedListener {
+                if (MoneyTextWatcher.getValueUnMasked(this) > 99999.99F) {
+                    this.setText(R.string.value_zero_mock)
+                }
+            }
+
+            doAfterTextChanged {
+                text?.length?.let { this.setSelection(it) }
+            }
+        }
 
         binding.btnContinue.setOnClickListener { validateDeposit() }
     }
 
     private fun validateDeposit() {
-        val amount = binding.editAmount.text.toString().trim()
+        val amountFullString = binding.editAmount.text.toString().trim()
+
+        val amount = amountFullString
+            .replace("R$", "")
+            .replace(" ", "")
+            .replace(",", ".")
 
         if (amount.isNotEmpty()) {
 
@@ -75,7 +94,7 @@ class DepositFormFragment : BaseFragment() {
                 }
 
                 is StateView.Success -> {
-                    stateView.data?.let{ saveTransaction(it) }
+                    stateView.data?.let { saveTransaction(it) }
                 }
 
                 else -> {

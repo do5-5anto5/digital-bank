@@ -16,7 +16,6 @@ class MoneyTextWatcher(private val editText: EditText) : TextWatcher {
         val parsed: BigDecimal = parseToBigDecimal(s.toString())
         val formatted: String = NumberFormat.getCurrencyInstance(Locale("pt", "BR")).format(parsed)
         editText.setText(formatted)
-        editText.setSelection(formatted.length)
         editText.addTextChangedListener(this)
     }
 
