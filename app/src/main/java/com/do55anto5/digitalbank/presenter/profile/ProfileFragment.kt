@@ -374,16 +374,11 @@ class ProfileFragment : BaseFragment() {
     }
 
     private fun configData() {
-        try {
-            user?.image?.let {
-                Picasso.get()
-                    .load(it)
-                    .fit().centerCrop()
-                    .into(binding.userImage)
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+
+        Picasso.get()
+            .load(user?.image)
+            .fit().centerCrop()
+            .into(binding.userImage)
 
         with(binding) {
             editName.setText(user?.name)
