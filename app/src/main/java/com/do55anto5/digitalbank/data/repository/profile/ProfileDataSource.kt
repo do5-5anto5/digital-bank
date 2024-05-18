@@ -10,4 +10,6 @@ interface ProfileDataSource {
 
     suspend fun getProfilesList(): List<User>
 
+    suspend fun saveImage(imageProfile: String): String
+
 }

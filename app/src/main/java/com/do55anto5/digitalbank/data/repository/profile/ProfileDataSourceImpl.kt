@@ -1,24 +1,32 @@
 package com.do55anto5.digitalbank.data.repository.profile
 
+import android.net.Uri
 import com.do55anto5.digitalbank.data.model.User
 import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
 import javax.inject.Inject
 import kotlin.coroutines.suspendCoroutine
 
 class ProfileDataSourceImpl @Inject constructor(
-    database: FirebaseDatabase
+    database: FirebaseDatabase,
+    storage: FirebaseStorage
 ) : ProfileDataSource {
 
-    private val profileReference = database.reference
+    private val databaseReference = database.reference
         .child("profile")
+
+    private val storageReference = storage.reference
+        .child("images")
+        .child("profiles")
+        .child("${FireBaseHelper.getUserId()}.jpeg")
 
     override suspend fun saveProfile(user: User) {
         return suspendCoroutine { continuation ->
-            profileReference
+            databaseReference
                 .child(FireBaseHelper.getUserId())
                 .setValue(user).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -34,7 +42,7 @@ class ProfileDataSourceImpl @Inject constructor(
 
     override suspend fun getProfile(): User {
         return suspendCoroutine { continuation ->
-            profileReference
+            databaseReference
                 .child(FireBaseHelper.getUserId())
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -57,7 +65,7 @@ class ProfileDataSourceImpl @Inject constructor(
 
     override suspend fun getProfilesList(): List<User> {
         return suspendCoroutine { continuation ->
-            profileReference
+            databaseReference
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -85,4 +93,21 @@ class ProfileDataSourceImpl @Inject constructor(
 
         }
     }
+
+    override suspend fun saveImage(imageProfile: String): String {
+        return suspendCoroutine { continuation ->
+            val uploadTask = storageReference.putFile(Uri.parse(imageProfile))
+            uploadTask.addOnSuccessListener {
+
+                storageReference.downloadUrl.addOnCompleteListener {  task ->
+                    continuation.resumeWith(Result.success(task.result.toString()))
+                }
+
+            }.addOnFailureListener{
+                continuation.resumeWith(Result.failure(it))
+            }
+        }
+    }
+
+
 }
