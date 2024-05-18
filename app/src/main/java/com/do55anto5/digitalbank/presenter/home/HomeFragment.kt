@@ -32,8 +32,9 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val homeViewModel: HomeViewModel by viewModels()
-
     private lateinit var adapterTransaction: TransactionAdapter
+
+    private val picassoTag = "PicassoTag"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -150,6 +151,7 @@ class HomeFragment : Fragment() {
 
         Picasso.get()
             .load(user.image)
+            .tag(picassoTag)
             .fit().centerCrop()
             .into(binding.userImage, object : Callback {
                 override fun onSuccess() {
@@ -207,6 +209,7 @@ class HomeFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+        Picasso.get().cancelTag(picassoTag)
         _binding = null
     }
 

@@ -52,6 +52,9 @@ class ProfileFragment : BaseFragment() {
 
     private val profileViewModel: ProfileViewModel by viewModels()
     private var user: User? = null
+
+    private val picassoTag = "PicassoTag"
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -379,6 +382,7 @@ class ProfileFragment : BaseFragment() {
         Picasso.get()
             .load(user?.image)
             .fit().centerCrop()
+            .tag(picassoTag)
             .into(binding.userImage, object : Callback {
                 override fun onSuccess() {
                     binding.progressImage.isVisible = false
@@ -399,6 +403,7 @@ class ProfileFragment : BaseFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        Picasso.get().cancelTag(picassoTag)
         _binding = null
     }
 }

@@ -66,9 +66,9 @@
                     android:layout_height="120dp"
                     android:visibility="invisible"
                     tools:visibility="visible"
-                    tools:src="@drawable/ic_user_line_blue"
+                    tools:src="@drawable/ic_user_line"
                     app:border_size="2dp"
-                    app:border_color="@color/white"/>
+                    app:border_color="@color/color_default"/>
 
             </FrameLayout>
 
