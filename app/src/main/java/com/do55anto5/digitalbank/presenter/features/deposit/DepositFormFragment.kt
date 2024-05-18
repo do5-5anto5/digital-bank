@@ -52,7 +52,7 @@ class DepositFormFragment : BaseFragment() {
             addTextChangedListener(MoneyTextWatcher(this))
 
             addTextChangedListener {
-                if (MoneyTextWatcher.getValueUnMasked(this) > 99999.99F) {
+                if (MoneyTextWatcher.getValueUnMasked(this) > 99999.99f) {
                     this.setText(R.string.value_zero_mock)
                 }
             }
@@ -66,16 +66,11 @@ class DepositFormFragment : BaseFragment() {
     }
 
     private fun validateDeposit() {
-        val amountFullString = binding.editAmount.text.toString().trim()
+        val amount = MoneyTextWatcher.getValueUnMasked(binding.editAmount)
 
-        val amount = amountFullString
-            .replace("R$", "")
-            .replace(" ", "")
-            .replace(",", ".")
+        if (amount > 0f) {
 
-        if (amount.isNotEmpty()) {
-
-            val deposit = Deposit(amount = amount.toFloat())
+            val deposit = Deposit(amount = amount)
 
             hideKeyboard()
 

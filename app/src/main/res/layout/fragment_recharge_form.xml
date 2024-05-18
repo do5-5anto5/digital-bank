@@ -52,7 +52,6 @@
                 android:layout_marginHorizontal="16dp"
                 android:text="@string/recharge_form_fragment_label_recharge_amount"
                 android:textColor="@color/white"
-                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view" />
@@ -82,7 +81,6 @@
                 android:layout_marginHorizontal="16dp"
                 android:text="@string/recharge_form_fragment_label_recharge_phone_number"
                 android:textColor="@color/white"
-                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_amount" />
@@ -101,6 +99,7 @@
                 android:textColorHint="@color/color_text_hint"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 android:layout_marginVertical="24dp"
                 android:layout_marginHorizontal="16dp"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
@@ -46,7 +48,18 @@ class RechargeFormFragment : BaseFragment() {
 
     private fun initListeners() {
 
-        with(binding.editAmount){ addTextChangedListener(MoneyTextWatcher(this)) }
+        with(binding.editAmount) {addTextChangedListener(MoneyTextWatcher(this))
+
+            addTextChangedListener {
+                if (MoneyTextWatcher.getValueUnMasked(this) > 100) {
+                    this.setText(R.string.value_zero_mock)
+                }
+            }
+
+            doAfterTextChanged {
+                text?.length?.let { this.setSelection(it) }
+            }
+        }
 
         with(binding) {
 
@@ -58,10 +71,10 @@ class RechargeFormFragment : BaseFragment() {
     }
 
     private fun validateRecharge() {
-        val amount = binding.editAmount.text.toString().trim()
+        val amount = MoneyTextWatcher.getValueUnMasked(binding.editAmount)
         val phone = binding.editPhone.unMaskedText
 
-        if (amount.isNotEmpty()) {
+        if (amount >= 10f) {
             if (phone?.isNotEmpty() == true) {
                 if (phone.length == 11) {
 
@@ -70,7 +83,7 @@ class RechargeFormFragment : BaseFragment() {
                     hideKeyboard()
 
                     val recharge = Recharge(
-                        amount = amount.toFloat(),
+                        amount = amount,
                         number = phone,
                     )
                    saveRecharge(recharge)
@@ -83,7 +96,7 @@ class RechargeFormFragment : BaseFragment() {
                 showBottomSheet(message = getString(R.string.error_txt_empty_phone))
             }
         } else {
-            showBottomSheet(message = getString(R.string.deposit_form_fragment_bottom_sheet_amount_empty))
+            showBottomSheet(message = getString(R.string.deposit_form_fragment_bottom_sheet_amount_invalid))
         }
     }
 

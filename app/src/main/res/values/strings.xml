@@ -130,8 +130,8 @@
     <string name="recharge_form_fragment_toolbar_txt_recharge">Recarga</string>
     <string name="recharge_form_fragment_label_recharge_amount">Valor da recarga</string>
     <string name="recharge_form_fragment_label_recharge_phone_number">Informe o número do telefone</string>
-    <string name="recharge_form_fragment_recharge_edit_text_number">Número</string>
-    <string name="deposit_form_fragment_bottom_sheet_amount_empty">Insira um valor válido</string>
+    <string name="recharge_form_fragment_recharge_edit_text_number">(35) 99999-9999</string>
+    <string name="deposit_form_fragment_bottom_sheet_amount_invalid">Recarga mínima de R$ 10,00</string>
 
     <!--TransferUserListFragment-->
     <string name="transfer_user_list_fragment_toolbar_txt_transference">Usuários</string>
