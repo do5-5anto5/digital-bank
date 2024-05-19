@@ -6,10 +6,10 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.User
 import com.do55anto5.digitalbank.databinding.FragmentTransferUserListBinding
@@ -124,7 +124,9 @@ class TransferUserListFragment : Fragment() {
     private fun initRecyclerView() {
 
         adapterTransferUser = TransferUserAdapter { selectedUser ->
-            Toast.makeText(requireContext(), selectedUser.name, Toast.LENGTH_SHORT).show()
+            val action = TransferUserListFragmentDirections
+                .actionTransferUserListFragmentToTransferFormFragment(selectedUser)
+            findNavController().navigate(action)
         }
 
         with(binding.rvUserList) {

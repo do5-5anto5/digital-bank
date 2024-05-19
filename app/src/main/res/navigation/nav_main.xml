@@ -150,5 +150,18 @@
         android:id="@+id/transferUserListFragment"
         android:name="com.do55anto5.digitalbank.presenter.features.transfer.TransferUserListFragment"
         android:label="fragment_transfer_user_list"
-        tools:layout="@layout/fragment_transfer_user_list" />
+        tools:layout="@layout/fragment_transfer_user_list" >
+        <action
+            android:id="@+id/action_transferUserListFragment_to_transferFormFragment"
+            app:destination="@id/transferFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferFormFragment"
+        android:name="com.do55anto5.digitalbank.presenter.features.transfer.TransferFormFragment"
+        android:label="fragment_transfer_form"
+        tools:layout="@layout/fragment_transfer_form" >
+        <argument
+            android:name="user"
+            app:argType="com.do55anto5.digitalbank.data.model.User" />
+    </fragment>
 </navigation>
