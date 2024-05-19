@@ -146,4 +146,14 @@
     <string name="transfer_form_fragment_deposit_operation_char">T</string>
     <string name="transfer_form_fragment_toast_deposit_success">Transferência realizada</string>
 
+    <!--ConfirmTransferFragment-->
+    <string name="confirm_transfer_fragment_txt_btn_continue">CONFIRMAR</string>
+    <string name="confirm_transfer_fragment_toolbar_txt_transfer">Transferência</string>
+    <string name="confirm_transfer_fragment_title_transfer_confirm">Confirme os dados antes de\n realizar a transferencia</string>
+    <string name="confirm_transfer_fragment_subtitle_transfer_warning">Após clicar em confirmar,\n a transferência não pode ser desfeita</string>
+    <string name="confirm_transfer_fragment_txt_transfer_target">Receberá a transferencia:</string>
+    <string name="confirm_transfer_fragment_txt_date_transaction">Data da transferência</string>"
+    <string name="confirm_transfer_fragment_txt_transfer_value">Valor da transferência</string>
+    <string name="transfer_form_fragment_txt_transfer_mock_value">R$ 100,00</string>
+
 </resources>

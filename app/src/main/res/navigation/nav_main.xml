@@ -163,5 +163,8 @@
         <argument
             android:name="user"
             app:argType="com.do55anto5.digitalbank.data.model.User" />
+        <argument
+            android:name="homeAsUpEnabled"
+            app:argType="boolean" />
     </fragment>
 </navigation>

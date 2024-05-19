@@ -5,6 +5,7 @@
     <color name="color_receipt_title">#23F6BB</color>
     <color name="color_cash_out">#EE4046</color>
     <color name="color_cash_in">#23B35A</color>
+    <color name="color_transfer_btn">#24BC61</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
