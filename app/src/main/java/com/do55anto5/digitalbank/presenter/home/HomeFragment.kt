@@ -23,7 +23,6 @@ import com.do55anto5.digitalbank.util.showBottomSheet
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.Exception
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -148,21 +147,27 @@ class HomeFragment : Fragment() {
     }
 
     private fun configData(user: User) {
+        if(user.image.isNotEmpty()) {
+            Picasso.get()
+                .load(user.image)
+                .fit().centerCrop()
+                .tag(picassoTag)
+                .into(binding.userImage, object : Callback {
+                    override fun onSuccess() {
+                        binding.progressImage.isVisible = false
+                        binding.userImage.isVisible = true
+                    }
 
-        Picasso.get()
-            .load(user.image)
-            .tag(picassoTag)
-            .fit().centerCrop()
-            .into(binding.userImage, object : Callback {
-                override fun onSuccess() {
-                    binding.progressImage.isVisible = false
-                    binding.userImage.isVisible = true
-                }
-
-                override fun onError(e: Exception?) {
-                    Toast.makeText(requireContext(), R.string.generic_error, Toast.LENGTH_SHORT).show()
-                }
-            })
+                    override fun onError(e: Exception) {
+                        Toast.makeText(requireContext(), R.string.generic_error, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                })
+        } else {
+            binding.progressImage.isVisible = false
+            binding.userImage.isVisible = true
+            binding.userImage.setImageResource(R.drawable.ic_user_place_holder)
+        }
     }
 
     private fun getTransactions() {
