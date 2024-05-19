@@ -148,7 +148,7 @@
     </fragment>
     <fragment
         android:id="@+id/transferUserListFragment"
-        android:name="com.do55anto5.digitalbank.presenter.features.transfer.TransferUserListFragment"
+        android:name="com.do55anto5.digitalbank.presenter.features.transfer.transfer_user_list.TransferUserListFragment"
         android:label="fragment_transfer_user_list"
         tools:layout="@layout/fragment_transfer_user_list" >
         <action
@@ -172,7 +172,7 @@
     </fragment>
     <fragment
         android:id="@+id/confirmTransferFragment"
-        android:name="com.do55anto5.digitalbank.presenter.features.transfer.ConfirmTransferFragment"
+        android:name="com.do55anto5.digitalbank.presenter.features.transfer.confirm_transfer.ConfirmTransferFragment"
         android:label="fragment_confirm_transfer"
         tools:layout="@layout/fragment_confirm_transfer" >
         <argument

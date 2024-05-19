@@ -155,5 +155,6 @@
     <string name="confirm_transfer_fragment_txt_date_transaction">Data da transferência</string>"
     <string name="confirm_transfer_fragment_txt_transfer_value">Valor da transferência</string>
     <string name="transfer_form_fragment_txt_transfer_mock_value">R$ 100,00</string>
+    <string name="confirm_fragment_bottom_sheet_insufficient_funds">Saldo insuficiente</string>
 
 </resources>

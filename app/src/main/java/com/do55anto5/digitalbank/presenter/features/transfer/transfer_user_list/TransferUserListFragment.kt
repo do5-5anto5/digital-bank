@@ -1,4 +1,4 @@
-package com.do55anto5.digitalbank.presenter.features.transfer
+package com.do55anto5.digitalbank.presenter.features.transfer.transfer_user_list
 
 import android.os.Bundle
 import android.view.LayoutInflater

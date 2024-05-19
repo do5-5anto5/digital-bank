@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:fillViewport="true"
-    tools:context=".presenter.features.transfer.ConfirmTransferFragment">
+    tools:context=".presenter.features.transfer.confirm_transfer.ConfirmTransferFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
