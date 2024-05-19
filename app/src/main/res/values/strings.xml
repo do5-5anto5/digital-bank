@@ -145,6 +145,7 @@
     <string name="transfer_form_fragment_deposit_operation">TRANSFERÊNCIA</string>
     <string name="transfer_form_fragment_deposit_operation_char">T</string>
     <string name="transfer_form_fragment_toast_deposit_success">Transferência realizada</string>
+    <string name="transfer_form_fragment_txt_transfer_mock_value">R$ 100,00</string>
 
     <!--ConfirmTransferFragment-->
     <string name="confirm_transfer_fragment_txt_btn_continue">CONFIRMAR</string>
@@ -154,7 +155,17 @@
     <string name="confirm_transfer_fragment_txt_transfer_target">Receberá a transferencia:</string>
     <string name="confirm_transfer_fragment_txt_date_transaction">Data da transferência</string>"
     <string name="confirm_transfer_fragment_txt_transfer_value">Valor da transferência</string>
-    <string name="transfer_form_fragment_txt_transfer_mock_value">R$ 100,00</string>
     <string name="confirm_fragment_bottom_sheet_insufficient_funds">Saldo insuficiente</string>
+
+    <!--TransferReceiptFragment-->
+    <string name="transfer_receipt_fragment_txt_btn_continue">OK</string>
+    <string name="transfer_receipt_fragment_toolbar_txt_receipt">Recibo</string>
+    <string name="transfer_receipt_fragment_title_receipt_success">Transferêcia efetuada\n com sucesso</string>
+    <string name="transfer_receipt_fragment_subtitle_receipt_success">Transferência realizada. A previsão do crédito na\n conta destino é de até 30 minutos</string>
+    <string name="transfer_receipt_fragment_txt_transfer_target">Recebeu a transferência:</string>
+    <string name="transfer_receipt_fragment_txt_date_transaction">Data da transferência</string>"
+    <string name="transfer_receipt_fragment_txt_value_transaction">Valor da transferência</string>
+    <string name="transfer_receipt_fragment_txt_code_transaction">Código Transação</string>
+    <string name="transfer_receipt_fragment_txt_transfer_mock_value">R$ 100,00</string>
 
 </resources>
