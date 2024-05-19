@@ -67,7 +67,10 @@ class TransactionAdapter(
 
         }
 
-        holder.binding.txtTransactionValue.text = GetMask.getFormattedValue(transaction.amount)
+        holder.binding.txtTransactionValue.text = context.getString(
+            R.string.home_fragment_currency_symbol,
+            GetMask.getFormattedValue(transaction.amount)
+        )
         holder.binding.txtTransactionDate.text =
             GetMask.getFormattedDate(transaction.date, GetMask.DAY_MONTH_YEAR_HOUR_MINUTE)
 
