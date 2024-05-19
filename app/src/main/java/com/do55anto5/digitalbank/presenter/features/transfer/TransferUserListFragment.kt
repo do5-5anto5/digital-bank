@@ -125,7 +125,7 @@ class TransferUserListFragment : Fragment() {
 
         adapterTransferUser = TransferUserAdapter { selectedUser ->
             val action = TransferUserListFragmentDirections
-                .actionTransferUserListFragmentToTransferFormFragment(selectedUser)
+                .actionTransferUserListFragmentToTransferFormFragment(selectedUser, true)
             findNavController().navigate(action)
         }
 

@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.databinding.FragmentTransferFormBinding
 import com.do55anto5.digitalbank.util.BaseFragment
@@ -19,6 +21,8 @@ class TransferFormFragment : BaseFragment() {
 
     private var _binding: FragmentTransferFormBinding? = null
     private val binding get() = _binding!!
+
+    private val args: TransferFormFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,7 +66,12 @@ class TransferFormFragment : BaseFragment() {
 
             hideKeyboard()
 
-            //action
+            val action = TransferFormFragmentDirections
+                .actionTransferFormFragmentToConfirmTransferFragment(
+                    user = args.user,
+                    amount = amount)
+            findNavController().navigate(action)
+
 
         } else {
             showBottomSheet(message = getString(R.string.transfer_form_fragment_message_deposit_empty))

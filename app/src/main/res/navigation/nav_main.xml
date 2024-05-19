@@ -166,5 +166,21 @@
         <argument
             android:name="homeAsUpEnabled"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_transferFormFragment_to_confirmTransferFragment"
+            app:destination="@id/confirmTransferFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmTransferFragment"
+        android:name="com.do55anto5.digitalbank.presenter.features.transfer.ConfirmTransferFragment"
+        android:label="fragment_confirm_transfer"
+        tools:layout="@layout/fragment_confirm_transfer" >
+        <argument
+            android:name="user"
+            app:argType="com.do55anto5.digitalbank.data.model.User" />
+        <argument
+            android:name="amount"
+            app:argType="float"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

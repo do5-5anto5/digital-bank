@@ -5,17 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.do55anto5.digitalbank.R
-import com.do55anto5.digitalbank.data.model.Deposit
 import com.do55anto5.digitalbank.databinding.FragmentConfirmTransferBinding
-import com.do55anto5.digitalbank.databinding.FragmentDepositReceiptBinding
 import com.do55anto5.digitalbank.util.GetMask
-import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,6 +22,10 @@ class ConfirmTransferFragment : Fragment() {
 
     private var _binding: FragmentConfirmTransferBinding? = null
     private val binding get() = _binding!!
+
+    private val args: ConfirmTransferFragmentArgs by navArgs()
+
+    private val picassoTag = "picassoTag"
 
 //    private val args: FragmentConfirmTransferBinding by navArgs()
 
@@ -40,7 +43,7 @@ class ConfirmTransferFragment : Fragment() {
 
         initToolbar(binding.toolbar,  true)
 
-//        getDeposit()
+        configData()
 
         initListeners()
 
@@ -50,19 +53,30 @@ class ConfirmTransferFragment : Fragment() {
         binding.btnContinue.setOnClickListener{ findNavController().popBackStack() }
     }
 
-    private fun configData(deposit: Deposit) {
-        with(binding){
+    private fun configData() {
+        Picasso.get()
+            .load(args.user.image)
+            .fit().centerCrop()
+            .tag(picassoTag)
+            .into(binding.userImage, object : Callback {
+                override fun onSuccess() {
+                    binding.progressImage.isVisible = false
+                    binding.userImage.isVisible = true
+                }
 
-//        txtCodeTransaction.text = deposit.id
-//        txtDateTransaction.text = GetMask.getFormattedDate(
-//            deposit.date, GetMask.DAY_MONTH_YEAR_HOUR_MINUTE)
-//        txtAmountTransaction.text = getString(
-//            R.string.home_fragment_currency_symbol, GetMask.getFormattedValue(deposit.amount))
-        }
+                override fun onError(e: java.lang.Exception?) {
+                    Toast.makeText(requireContext(), R.string.generic_error, Toast.LENGTH_SHORT).show()
+                }
+            })
+
+        binding.recipientName.text = args.user.name
+        binding.txtTransferAmount.text =
+            getString(R.string.home_fragment_currency_symbol, GetMask.getFormattedValue(args.amount))
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        Picasso.get().cancelTag(picassoTag)
         _binding = null
     }
 }

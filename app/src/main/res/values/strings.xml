@@ -137,7 +137,7 @@
     <string name="transfer_user_list_fragment_toolbar_txt_transference">Usuários</string>
 
     <!--TransferFormFragment-->
-    <string name="transfer_form_fragment_txt_btn_continue">CONFIRMAR</string>
+    <string name="transfer_form_fragment_txt_btn_continue">CONTINUAR</string>
     <string name="transfer_form_fragment_toolbar_txt_deposit">Transferir</string>
     <string name="transfer_form_fragment_txt_instructions">Por favor, informe o valor a ser transferido</string>
     <string name="transfer_form_fragment_label_deposit_amount">Valor da transferência</string>
