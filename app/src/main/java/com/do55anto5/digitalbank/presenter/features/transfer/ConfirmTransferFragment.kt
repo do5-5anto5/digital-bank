@@ -54,20 +54,27 @@ class ConfirmTransferFragment : Fragment() {
     }
 
     private fun configData() {
-        Picasso.get()
-            .load(args.user.image)
-            .fit().centerCrop()
-            .tag(picassoTag)
-            .into(binding.userImage, object : Callback {
-                override fun onSuccess() {
-                    binding.progressImage.isVisible = false
-                    binding.userImage.isVisible = true
-                }
+        if (args.user.image.isNotEmpty()) {
+            Picasso.get()
+                .load(args.user.image)
+                .fit().centerCrop()
+                .tag(picassoTag)
+                .into(binding.userImage, object : Callback {
+                    override fun onSuccess() {
+                        binding.progressImage.isVisible = false
+                        binding.userImage.isVisible = true
+                    }
 
-                override fun onError(e: java.lang.Exception?) {
-                    Toast.makeText(requireContext(), R.string.generic_error, Toast.LENGTH_SHORT).show()
-                }
-            })
+                    override fun onError(e: java.lang.Exception?) {
+                        Toast.makeText(requireContext(), R.string.generic_error, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                })
+        } else {
+            binding.progressImage.isVisible = false
+            binding.userImage.isVisible = true
+            binding.userImage.setImageResource(R.drawable.ic_user_place_holder)
+        }
 
         binding.recipientName.text = args.user.name
         binding.txtTransferAmount.text =

@@ -68,7 +68,7 @@ class TransferUserAdapter(
                 .fit().centerCrop()
                 .into(holder.binding.userImage)
         } else {
-            holder.binding.userImage.setImageResource(R.drawable.ic_user_fill)
+            holder.binding.userImage.setImageResource(R.drawable.ic_user_place_holder)
         }
 
     }
