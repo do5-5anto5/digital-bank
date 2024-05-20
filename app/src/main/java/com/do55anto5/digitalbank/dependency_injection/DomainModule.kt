@@ -8,6 +8,8 @@ import com.do55anto5.digitalbank.data.repository.recharge.RechargeDataSource
 import com.do55anto5.digitalbank.data.repository.recharge.RechargeDataSourceImpl
 import com.do55anto5.digitalbank.data.repository.transaction.TransactionDataSource
 import com.do55anto5.digitalbank.data.repository.transaction.TransactionDataSourceImpl
+import com.do55anto5.digitalbank.data.repository.transfer.TransferDataSource
+import com.do55anto5.digitalbank.data.repository.transfer.TransferDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -36,4 +38,8 @@ abstract class DomainModule {
     abstract fun bindRechargeDataSource(
         rechargeDataSourceImpl: RechargeDataSourceImpl
     ) : RechargeDataSource
+    @Binds
+    abstract fun bindTransferDataSource(
+        transferDataSourceImpl: TransferDataSourceImpl
+    ) : TransferDataSource
 }
