@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.do55anto5.digitalbank.R
+import com.do55anto5.digitalbank.data.model.Transfer
 import com.do55anto5.digitalbank.databinding.FragmentConfirmTransferBinding
+import com.do55anto5.digitalbank.util.FireBaseHelper
 import com.do55anto5.digitalbank.util.GetMask
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
@@ -31,8 +33,6 @@ class ConfirmTransferFragment : Fragment() {
 
     private val picassoTag = "picassoTag"
 
-    private var userBalance = 0f
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,8 +49,6 @@ class ConfirmTransferFragment : Fragment() {
 
         configData()
 
-        getBalance()
-
         initListeners()
 
     }
@@ -60,13 +58,44 @@ class ConfirmTransferFragment : Fragment() {
             when (stateView) {
 
                 is StateView.Loading -> {
+                    binding.progressBar.isVisible = true
                 }
 
                 is StateView.Success -> {
-                    userBalance = stateView.data ?: 0f
+
+                    if ((stateView.data ?: 0f) >= args.amount) {
+                        val transfer = Transfer(
+                            senderUserId = FireBaseHelper.getUserId(),
+                            recipientUserId = args.user.id,
+                            amount = args.amount
+                        )
+                        saveTransfer(transfer)
+                    } else {
+                        showBottomSheet(message  = getString(R.string.confirm_fragment_bottom_sheet_insufficient_funds))
+                    }
                 }
 
                 else -> {
+                    binding.progressBar.isVisible = false
+                    showBottomSheet(message = stateView.message)
+                }
+            }
+        }
+    }
+
+    private fun saveTransfer(transfer: Transfer) {
+        confirmTransferViewModel.saveTransfer(transfer).observe(viewLifecycleOwner) { stateView ->
+            when (stateView) {
+
+                is StateView.Loading -> {
+                }
+
+                is StateView.Success -> {
+                    Toast.makeText(requireContext(), "Mock transfer confirmed", Toast.LENGTH_SHORT).show()
+                }
+
+                else -> {
+                    binding.progressBar.isVisible = false
                     showBottomSheet(message = stateView.message)
                 }
             }
@@ -74,14 +103,7 @@ class ConfirmTransferFragment : Fragment() {
     }
 
     private fun initListeners() {
-        binding.btnContinue.setOnClickListener {
-            if (userBalance >= args.amount) {
-                Toast.makeText(requireContext(), "Mock confirmation message", Toast.LENGTH_SHORT).show()
-            } else {
-                showBottomSheet(message  = getString(R.string.confirm_fragment_bottom_sheet_insufficient_funds))
-            }
-        }
-    }
+        binding.btnContinue.setOnClickListener { getBalance() } }
 
     private fun configData() {
         if (args.user.image.isNotEmpty()) {
