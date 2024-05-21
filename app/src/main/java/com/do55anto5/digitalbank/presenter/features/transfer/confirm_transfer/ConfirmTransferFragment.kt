@@ -91,7 +91,26 @@ class ConfirmTransferFragment : Fragment() {
                 }
 
                 is StateView.Success -> {
-                    Toast.makeText(requireContext(), "Mock transfer confirmed", Toast.LENGTH_SHORT).show()
+                    updateTransfer(transfer)
+                }
+
+                else -> {
+                    binding.progressBar.isVisible = false
+                    showBottomSheet(message = stateView.message)
+                }
+            }
+        }
+    }
+
+    private fun updateTransfer(transfer: Transfer) {
+        confirmTransferViewModel.updateTransfer(transfer).observe(viewLifecycleOwner) { stateView ->
+            when (stateView) {
+
+                is StateView.Loading -> {
+                }
+
+                is StateView.Success -> {
+                    Toast.makeText(requireContext(), "Mock transfer saved with date", Toast.LENGTH_SHORT).show()
                 }
 
                 else -> {

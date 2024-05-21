@@ -5,6 +5,7 @@ import androidx.lifecycle.liveData
 import com.do55anto5.digitalbank.data.model.Transfer
 import com.do55anto5.digitalbank.domain.transaction.GetBalanceUseCase
 import com.do55anto5.digitalbank.domain.transfer.SaveTransferUseCase
+import com.do55anto5.digitalbank.domain.transfer.UpdateTransferUseCase
 import com.do55anto5.digitalbank.util.StateView
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -13,7 +14,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ConfirmTransferViewModel @Inject constructor(
     private val getBalanceUseCase: GetBalanceUseCase,
-    private val saveTransferUseCase: SaveTransferUseCase
+    private val saveTransferUseCase: SaveTransferUseCase,
+    private val updateTransferUseCase: UpdateTransferUseCase
 ): ViewModel() {
 
     fun getBalance() = liveData(Dispatchers.IO) {
@@ -41,4 +43,18 @@ class ConfirmTransferViewModel @Inject constructor(
             emit(StateView.Error(e.message))
         }
     }
+
+    fun updateTransfer(transfer: Transfer) = liveData(Dispatchers.IO) {
+        try {
+            emit(StateView.Loading())
+
+            updateTransferUseCase.invoke(transfer)
+
+            emit(StateView.Success(Unit))
+
+        } catch (e: Exception) {
+            emit(StateView.Error(e.message))
+        }
+    }
+
 }
