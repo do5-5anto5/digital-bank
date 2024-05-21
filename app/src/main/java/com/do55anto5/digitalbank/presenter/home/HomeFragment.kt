@@ -117,7 +117,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun getProfile() {
-       homeViewModel.getProfile().observe(viewLifecycleOwner) { stateView ->
+       homeViewModel.getProfile(FireBaseHelper.getUserId()).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
 
                 is StateView.Loading -> {

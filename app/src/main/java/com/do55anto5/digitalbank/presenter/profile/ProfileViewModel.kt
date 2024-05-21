@@ -44,11 +44,11 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    fun getProfile() = liveData(Dispatchers.IO) {
+    fun getProfile(id: String) = liveData(Dispatchers.IO) {
         try {
             emit(StateView.Loading())
 
-            val user = getProfileUseCase.invoke()
+            val user = getProfileUseCase.invoke(id)
 
             emit(StateView.Success(user))
 
