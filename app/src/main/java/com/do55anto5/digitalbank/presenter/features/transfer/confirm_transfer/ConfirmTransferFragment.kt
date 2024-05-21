@@ -133,7 +133,7 @@ class ConfirmTransferFragment : Fragment() {
                     val action = ConfirmTransferFragmentDirections
                         .actionConfirmTransferFragmentToTransferReceiptFragment(
                             transfer.id,
-                            true
+                            false
                         )
                     findNavController().navigate(action)
                 }

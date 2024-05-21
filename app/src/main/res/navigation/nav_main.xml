@@ -185,7 +185,7 @@
         <action
             android:id="@+id/action_confirmTransferFragment_to_transferReceiptFragment"
             app:destination="@id/transferReceiptFragment"
-            app:popUpTo="@id/transferFormFragment"
+            app:popUpTo="@id/transferUserListFragment"
             app:popUpToInclusive="true"/>
     </fragment>
     <fragment

@@ -4,8 +4,12 @@ import com.do55anto5.digitalbank.data.enum.TransactionOperation
 import com.do55anto5.digitalbank.data.enum.TransactionType
 import com.do55anto5.digitalbank.data.model.Transaction
 import com.do55anto5.digitalbank.data.model.Transfer
+import com.do55anto5.digitalbank.util.FireBaseHelper
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ServerValue
+import com.google.firebase.database.ValueEventListener
 import javax.inject.Inject
 import kotlin.coroutines.suspendCoroutine
 
@@ -77,6 +81,28 @@ class TransferDataSourceImpl @Inject constructor(
                         }
                     }
                 }
+        }
+    }
+
+    override suspend fun getTransfer(id: String): Transfer {
+        return suspendCoroutine { continuation ->
+            transferReference
+                .child(FireBaseHelper.getUserId())
+                .child(id)
+                .addListenerForSingleValueEvent (object: ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val transfer = snapshot.getValue(Transfer::class.java)
+
+                        transfer?.let {
+                            continuation.resumeWith(Result.success(it))
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        continuation.resumeWith(Result.failure(error.toException()))
+                    }
+
+                })
         }
     }
 
