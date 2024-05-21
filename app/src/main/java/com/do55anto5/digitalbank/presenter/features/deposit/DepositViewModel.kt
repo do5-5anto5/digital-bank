@@ -16,6 +16,7 @@ class DepositViewModel @Inject constructor(
     private val saveDepositUseCase: SaveDepositUseCase,
     private val saveTransactionUseCase: SaveTransactionUseCase
 ) : ViewModel(){
+
     fun saveDeposit(deposit: Deposit) = liveData(Dispatchers.IO) {
         try {
             emit(StateView.Loading())
@@ -30,6 +31,7 @@ class DepositViewModel @Inject constructor(
             emit(StateView.Error(e.message))
         }
     }
+
     fun saveTransaction(transaction: Transaction) = liveData(Dispatchers.IO) {
         try {
             emit(StateView.Loading())

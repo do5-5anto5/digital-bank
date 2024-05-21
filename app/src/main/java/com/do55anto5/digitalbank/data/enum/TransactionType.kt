@@ -8,6 +8,7 @@ enum class TransactionType {
             return when (operation) {
                 TransactionOperation.DEPOSIT -> 'D'
                 TransactionOperation.RECHARGE -> 'R'
+                TransactionOperation.TRANSFER -> 'T'
             }
         }
     }

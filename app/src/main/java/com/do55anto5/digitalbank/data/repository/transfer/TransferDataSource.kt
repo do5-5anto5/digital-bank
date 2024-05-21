@@ -6,4 +6,5 @@ interface TransferDataSource {
 
     suspend fun saveTransfer(transfer: Transfer)
     suspend fun updateTransfer(transfer: Transfer)
+    suspend fun saveTransferTransaction(transfer: Transfer)
 }

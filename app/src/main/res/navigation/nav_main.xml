@@ -196,5 +196,8 @@
         <argument
             android:name="idTransfer"
             app:argType="string" />
+        <argument
+            android:name="homeAsUpEnabled"
+            app:argType="boolean" />
     </fragment>
 </navigation>

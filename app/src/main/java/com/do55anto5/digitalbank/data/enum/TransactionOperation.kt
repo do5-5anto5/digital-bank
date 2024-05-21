@@ -2,7 +2,8 @@ package com.do55anto5.digitalbank.data.enum
 
 enum class TransactionOperation {
     DEPOSIT,
-    RECHARGE;
+    RECHARGE,
+    TRANSFER;
 
     companion object {
         fun getOperation(operation: TransactionOperation): String {
@@ -10,6 +11,7 @@ enum class TransactionOperation {
             return when (operation) {
                 DEPOSIT -> "DEPÓSITO"
                 RECHARGE -> "RECARGA DE CELULAR"
+                TRANSFER -> "TRANSFERÊNCIA"
             }
         }
     }

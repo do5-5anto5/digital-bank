@@ -1,5 +1,8 @@
 package com.do55anto5.digitalbank.data.repository.transfer
 
+import com.do55anto5.digitalbank.data.enum.TransactionOperation
+import com.do55anto5.digitalbank.data.enum.TransactionType
+import com.do55anto5.digitalbank.data.model.Transaction
 import com.do55anto5.digitalbank.data.model.Transfer
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ServerValue
@@ -12,6 +15,9 @@ class TransferDataSourceImpl @Inject constructor(
 
     private val transferReference = database.reference
         .child("transfer")
+
+    private val transactionReference = database.reference
+        .child("transaction")
 
     override suspend fun saveTransfer(transfer: Transfer) {
         suspendCoroutine { continuation ->
@@ -67,6 +73,55 @@ class TransferDataSourceImpl @Inject constructor(
                             }
                     } else {
                         senderTaskUpdate.exception?.let {
+                            continuation.resumeWith(Result.failure(it))
+                        }
+                    }
+                }
+        }
+    }
+
+    override suspend fun saveTransferTransaction(transfer: Transfer) {
+        return suspendCoroutine { continuation ->
+            val senderUserTransaction = Transaction(
+                id = transfer.id,
+                operation = TransactionOperation.TRANSFER,
+                date = transfer.date,
+                amount = transfer.amount,
+                type = TransactionType.CASH_OUT
+            )
+
+            val recipientUserTransaction = Transaction(
+                id = transfer.id,
+                operation = TransactionOperation.TRANSFER,
+                date = transfer.date,
+                amount = transfer.amount,
+                type = TransactionType.CASH_IN
+            )
+
+            transactionReference
+                .child(transfer.senderUserId)
+                .child(transfer.id)
+                .setValue(senderUserTransaction)
+                .addOnCompleteListener { senderUserTask ->
+                    if (senderUserTask.isSuccessful) {
+
+                        transactionReference
+                            .child(transfer.recipientUserId)
+                            .child(transfer.id)
+                            .setValue(recipientUserTransaction)
+                            .addOnCompleteListener { recipientUserTask ->
+                                if (recipientUserTask.isSuccessful) {
+
+                                continuation.resumeWith(Result.success(Unit))
+                                } else {
+                                    recipientUserTask.exception?.let {
+                                        continuation.resumeWith(Result.failure(it))
+                                    }
+                                }
+                            }
+
+                    } else {
+                        senderUserTask.exception?.let {
                             continuation.resumeWith(Result.failure(it))
                         }
                     }

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.Transfer
@@ -110,7 +111,7 @@ class ConfirmTransferFragment : Fragment() {
                 }
 
                 is StateView.Success -> {
-                    Toast.makeText(requireContext(), "Mock transfer saved with date", Toast.LENGTH_SHORT).show()
+                    saveTransaction(transfer)
                 }
 
                 else -> {
@@ -118,6 +119,30 @@ class ConfirmTransferFragment : Fragment() {
                     showBottomSheet(message = stateView.message)
                 }
             }
+        }
+    }
+
+    private fun saveTransaction(transfer: Transfer) {
+
+        confirmTransferViewModel.saveTransaction(transfer).observe(viewLifecycleOwner) { stateView ->
+            when (stateView) {
+                is StateView.Loading -> {
+                }
+
+                is StateView.Success -> {
+                    val action = ConfirmTransferFragmentDirections
+                        .actionConfirmTransferFragmentToTransferReceiptFragment(
+                            transfer.id,
+                            true
+                        )
+                    findNavController().navigate(action)
+                }
+
+                else -> {
+                    showBottomSheet(message = stateView.message)
+                }
+            }
+
         }
     }
 
