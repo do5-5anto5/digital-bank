@@ -82,6 +82,9 @@
         <action
             android:id="@+id/action_homeFragment_to_transferUserListFragment"
             app:destination="@id/transferUserListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_transferReceiptFragment"
+            app:destination="@id/transferReceiptFragment" />
     </fragment>
     <fragment
         android:id="@+id/depositFormFragment"
@@ -117,6 +120,9 @@
         <action
             android:id="@+id/action_bankStatementFragment_to_rechargeReceiptFragment"
             app:destination="@id/rechargeReceiptFragment" />
+        <action
+            android:id="@+id/action_bankStatementFragment_to_transferReceiptFragment"
+            app:destination="@id/transferReceiptFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"

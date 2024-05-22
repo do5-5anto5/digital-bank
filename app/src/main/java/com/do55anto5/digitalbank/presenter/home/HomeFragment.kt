@@ -105,6 +105,12 @@ class HomeFragment : Fragment() {
 
                     findNavController().navigate(action)
                     }
+                TransactionOperation.TRANSFER -> {
+                    val action = HomeFragmentDirections
+                        .actionHomeFragmentToTransferReceiptFragment(transaction.id, true)
+
+                    findNavController().navigate(action)
+                    }
                 else -> {
                 }
             }

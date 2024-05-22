@@ -62,6 +62,11 @@ class BankStatementFragment : Fragment() {
 
                     findNavController().navigate(action)
                 }
+                TransactionOperation.TRANSFER -> {
+                    val action = BankStatementFragmentDirections
+                        .actionBankStatementFragmentToTransferReceiptFragment(transaction.id, true)
+                    findNavController().navigate(action)
+                }
                 else -> {
                 }
             }

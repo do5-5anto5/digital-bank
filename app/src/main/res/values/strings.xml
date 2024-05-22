@@ -163,7 +163,8 @@
     <string name="transfer_receipt_fragment_toolbar_txt_receipt">Recibo</string>
     <string name="transfer_receipt_fragment_title_receipt_success">Transferêcia efetuada\n com sucesso</string>
     <string name="transfer_receipt_fragment_subtitle_receipt_success">Transferência realizada. A previsão do crédito na\n conta destino é de até 30 minutos</string>
-    <string name="transfer_receipt_fragment_txt_transfer_target">Recebeu a transferência:</string>
+    <string name="transfer_receipt_fragment_txt_transfer_recipient">Recebeu a transferência:</string>
+    <string name="transfer_receipt_fragment_txt_transfer_sender">Enviou a transferência:</string>
     <string name="transfer_receipt_fragment_txt_date_transaction">Data da transferência</string>"
     <string name="transfer_receipt_fragment_txt_value_transaction">Valor da transferência</string>
     <string name="transfer_receipt_fragment_txt_code_transaction">Código Transação</string>
