@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.do55anto5.digitalbank.MainGraphDirections
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.Transfer
 import com.do55anto5.digitalbank.databinding.FragmentConfirmTransferBinding
@@ -150,8 +151,8 @@ class ConfirmTransferFragment : Fragment() {
                 }
 
                 is StateView.Success -> {
-                    val action = ConfirmTransferFragmentDirections
-                        .actionConfirmTransferFragmentToTransferReceiptFragment(
+                    val action = MainGraphDirections
+                        .actionGlobalTransferReceiptFragment(
                             transfer.id,
                             false
                         )

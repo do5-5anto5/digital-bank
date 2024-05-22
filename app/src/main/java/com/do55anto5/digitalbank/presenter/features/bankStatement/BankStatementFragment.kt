@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.do55anto5.digitalbank.MainGraphDirections
 import com.do55anto5.digitalbank.data.enum.TransactionOperation
 import com.do55anto5.digitalbank.databinding.FragmentBankStatementBinding
 import com.do55anto5.digitalbank.presenter.home.TransactionAdapter
@@ -49,24 +50,26 @@ class BankStatementFragment : Fragment() {
         adapterTransaction = TransactionAdapter(requireContext()) { transaction ->
             when (transaction.operation) {
                 TransactionOperation.DEPOSIT -> {
-                    val action = BankStatementFragmentDirections
-                        .actionBankStatementFragmentToDepositReceiptFragment(
-                            transaction.id, true)
+                    val action = MainGraphDirections
+                        .actionGlobalDepositReceiptFragment(transaction.id, true)
 
                     findNavController().navigate(action)
                 }
+
                 TransactionOperation.RECHARGE -> {
-                    val action = BankStatementFragmentDirections
-                        .actionBankStatementFragmentToRechargeReceiptFragment(
-                            transaction.id, true)
+                    val action = MainGraphDirections
+                        .actionGlobalRechargeReceiptFragment(transaction.id, true
+                        )
 
                     findNavController().navigate(action)
                 }
+
                 TransactionOperation.TRANSFER -> {
-                    val action = BankStatementFragmentDirections
-                        .actionBankStatementFragmentToTransferReceiptFragment(transaction.id, true)
+                    val action = MainGraphDirections
+                        .actionGlobalTransferReceiptFragment(transaction.id, true)
                     findNavController().navigate(action)
                 }
+
                 else -> {
                 }
             }

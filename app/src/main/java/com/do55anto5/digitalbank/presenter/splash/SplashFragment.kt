@@ -34,11 +34,12 @@ class SplashFragment : Fragment() {
     }
 
     private fun verifyAuth() {
-        if (FireBaseHelper.isAuthenticated()) {
-            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+        val action = if (FireBaseHelper.isAuthenticated()) {
+            R.id.action_global_homeFragment
         } else {
-            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            R.id.action_global_authentication
         }
+        findNavController().navigate(action)
     }
 
     override fun onDestroy() {

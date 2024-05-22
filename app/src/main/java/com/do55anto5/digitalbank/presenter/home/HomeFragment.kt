@@ -10,6 +10,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.do55anto5.digitalbank.MainGraphDirections
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.enum.TransactionOperation
 import com.do55anto5.digitalbank.data.enum.TransactionType
@@ -81,7 +82,7 @@ class HomeFragment : Fragment() {
 
             btnLogout.setOnClickListener {
                 FireBaseHelper.logout()
-                findNavController().navigate(R.id.action_homeFragment_to_authentication)
+                findNavController().navigate(R.id.action_global_authentication)
             }
 
             cardProfile.setOnClickListener {
@@ -94,20 +95,20 @@ class HomeFragment : Fragment() {
         adapterTransaction = TransactionAdapter(requireContext()) { transaction ->
             when (transaction.operation) {
                 TransactionOperation.DEPOSIT -> {
-                    val action = HomeFragmentDirections
-                        .actionHomeFragmentToDepositReceiptFragment(transaction.id, true)
+                    val action = MainGraphDirections
+                        .actionGlobalDepositReceiptFragment(transaction.id, true)
 
                     findNavController().navigate(action)
                 }
                 TransactionOperation.RECHARGE -> {
-                    val action = HomeFragmentDirections
-                        .actionHomeFragmentToRechargeReceiptFragment(transaction.id, true)
+                    val action = MainGraphDirections
+                        .actionGlobalRechargeReceiptFragment(transaction.id, true)
 
                     findNavController().navigate(action)
                     }
                 TransactionOperation.TRANSFER -> {
-                    val action = HomeFragmentDirections
-                        .actionHomeFragmentToTransferReceiptFragment(transaction.id, true)
+                    val action = MainGraphDirections
+                        .actionGlobalTransferReceiptFragment(transaction.id, true)
 
                     findNavController().navigate(action)
                     }
