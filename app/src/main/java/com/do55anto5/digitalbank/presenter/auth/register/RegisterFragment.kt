@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.User
@@ -130,7 +131,11 @@ class RegisterFragment : BaseFragment() {
                 }
 
                 is StateView.Success -> {
-                    findNavController().navigate(R.id.action_global_homeFragment)
+                    val navOptions: NavOptions =
+                        NavOptions.Builder()
+                            .setPopUpTo(R.id.registerFragment, true).build()
+
+                    findNavController().navigate(R.id.action_global_homeFragment, null, navOptions)
                 }
 
                 else -> {

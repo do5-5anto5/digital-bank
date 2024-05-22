@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.MainGraphDirections
 import com.do55anto5.digitalbank.R
@@ -137,7 +138,12 @@ class RechargeFormFragment : BaseFragment() {
                     val action = MainGraphDirections
                         .actionGlobalRechargeReceiptFragment(recharge.id, false)
 
-                    findNavController().navigate(action)
+                    val navOptions: NavOptions =
+                        NavOptions.Builder()
+                            .setPopUpTo(R.id.rechargeFormFragment, true)
+                            .build()
+
+                    findNavController().navigate(action, navOptions)
                 }
 
                 else -> {

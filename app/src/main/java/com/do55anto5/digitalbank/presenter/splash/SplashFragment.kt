@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.databinding.FragmentSplashBinding
@@ -39,7 +40,12 @@ class SplashFragment : Fragment() {
         } else {
             R.id.action_global_authentication
         }
-        findNavController().navigate(action)
+
+        val navOptions: NavOptions =
+            NavOptions.Builder()
+                .setPopUpTo(R.id.splashFragment, true).build()
+
+        findNavController().navigate(action, null, navOptions)
     }
 
     override fun onDestroy() {

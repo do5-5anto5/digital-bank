@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.do55anto5.digitalbank.MainGraphDirections
@@ -156,7 +157,13 @@ class ConfirmTransferFragment : Fragment() {
                             transfer.id,
                             false
                         )
-                    findNavController().navigate(action)
+
+                    val navOptions: NavOptions =
+                        NavOptions.Builder()
+                            .setPopUpTo(R.id.transferUserListFragment, true)
+                            .build()
+
+                    findNavController().navigate(action, navOptions)
                 }
 
                 else -> {

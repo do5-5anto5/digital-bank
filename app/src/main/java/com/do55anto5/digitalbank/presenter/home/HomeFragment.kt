@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.do55anto5.digitalbank.MainGraphDirections
 import com.do55anto5.digitalbank.R
@@ -81,8 +82,14 @@ class HomeFragment : Fragment() {
             }
 
             btnLogout.setOnClickListener {
+
                 FireBaseHelper.logout()
-                findNavController().navigate(R.id.action_global_authentication)
+
+                val navOptions: NavOptions =
+                    NavOptions.Builder()
+                        .setPopUpTo(R.id.homeFragment, true).build()
+
+                findNavController().navigate(R.id.action_global_authentication, null, navOptions)
             }
 
             cardProfile.setOnClickListener {
