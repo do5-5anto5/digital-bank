@@ -154,4 +154,37 @@ class TransferDataSourceImpl @Inject constructor(
                 }
         }
     }
+
+    override suspend fun updateTransferTransaction(transfer: Transfer) {
+        suspendCoroutine { continuation ->
+            transactionReference
+                .child(transfer.senderUserId)
+                .child(transfer.id)
+                .child("date")
+                .setValue(ServerValue.TIMESTAMP)
+                .addOnCompleteListener { senderTaskUpdate ->
+                    if (senderTaskUpdate.isSuccessful) {
+
+                        transactionReference
+                            .child(transfer.recipientUserId)
+                            .child(transfer.id)
+                            .child("date")
+                            .setValue(ServerValue.TIMESTAMP)
+                            .addOnCompleteListener { recipientTaskUpdate ->
+                                if (recipientTaskUpdate.isSuccessful) {
+                                    continuation.resumeWith(Result.success(Unit))
+                                } else {
+                                    recipientTaskUpdate.exception?.let {
+                                        continuation.resumeWith(Result.failure(it))
+                                    }
+                                }
+                            }
+                    } else {
+                        senderTaskUpdate.exception?.let {
+                            continuation.resumeWith(Result.failure(it))
+                        }
+                    }
+                }
+        }
+    }
 }

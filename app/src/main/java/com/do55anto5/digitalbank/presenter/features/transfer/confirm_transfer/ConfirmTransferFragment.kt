@@ -72,6 +72,7 @@ class ConfirmTransferFragment : Fragment() {
                         )
                         saveTransfer(transfer)
                     } else {
+                        binding.progressBar.isVisible = false
                         showBottomSheet(message  = getString(R.string.confirm_fragment_bottom_sheet_insufficient_funds))
                     }
                 }
@@ -130,6 +131,25 @@ class ConfirmTransferFragment : Fragment() {
                 }
 
                 is StateView.Success -> {
+                    updateTransferTransaction(transfer)
+                }
+
+                else -> {
+                    showBottomSheet(message = stateView.message)
+                }
+            }
+
+        }
+    }
+
+    private fun updateTransferTransaction(transfer: Transfer) {
+        confirmTransferViewModel.updateTransferTransaction(transfer).observe(viewLifecycleOwner) { stateView ->
+            when (stateView) {
+
+                is StateView.Loading -> {
+                }
+
+                is StateView.Success -> {
                     val action = ConfirmTransferFragmentDirections
                         .actionConfirmTransferFragmentToTransferReceiptFragment(
                             transfer.id,
@@ -139,10 +159,10 @@ class ConfirmTransferFragment : Fragment() {
                 }
 
                 else -> {
+                    binding.progressBar.isVisible = false
                     showBottomSheet(message = stateView.message)
                 }
             }
-
         }
     }
 
