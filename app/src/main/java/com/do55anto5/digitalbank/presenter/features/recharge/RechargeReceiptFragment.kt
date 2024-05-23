@@ -12,7 +12,9 @@ import com.do55anto5.digitalbank.R
 import com.do55anto5.digitalbank.data.model.Recharge
 import com.do55anto5.digitalbank.databinding.FragmentRechargeReceiptBinding
 import com.do55anto5.digitalbank.util.BaseFragment
+import com.do55anto5.digitalbank.util.Constants
 import com.do55anto5.digitalbank.util.GetMask
+import com.do55anto5.digitalbank.util.PhoneNumberMask
 import com.do55anto5.digitalbank.util.StateView
 import com.do55anto5.digitalbank.util.initToolbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -76,7 +78,8 @@ class RechargeReceiptFragment : BaseFragment() {
                 recharge.date, GetMask.DAY_MONTH_YEAR_HOUR_MINUTE)
             txtAmountTransaction.text = getString(
                 R.string.home_fragment_currency_symbol, GetMask.getFormattedValue(recharge.amount))
-            txtPhoneNumber.text = recharge.number
+
+            txtPhoneNumber.text = PhoneNumberMask.mask(Constants.Mask.PHONE_MASK, recharge.number)
         }
     }
 
