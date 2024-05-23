@@ -60,7 +60,7 @@
                 android:id="@+id/edit_amount"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
+                android:inputType="numberDecimal|textNoSuggestions"
                 android:layout_margin="16dp"
                 android:backgroundTint="@color/white"
                 android:textColor="@color/white"

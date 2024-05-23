@@ -31,7 +31,7 @@ fun Fragment.showBottomSheet(
         BottomSheetBinding.inflate(layoutInflater, null, false)
 
     bottomSheetBinding.txtTitle.text = getString(title ?: R.string.bottom_sheet_txt_title)
-    bottomSheetBinding.txtMessage.text = message ?: getText(R.string.generic_error)
+    bottomSheetBinding.txtMessage.text = message ?: getString(R.string.generic_error)
     bottomSheetBinding.btnOk.text = getString(titleButton ?: R.string.bottom_sheet_btn_title)
 
     bottomSheetBinding.btnOk.setOnClickListener {
