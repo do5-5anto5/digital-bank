@@ -63,10 +63,15 @@ class TransferUserListFragment : Fragment() {
             override fun onQueryTextChange(newText: String): Boolean {
                 return if (newText.isNotEmpty()) {
                     val newList = profilesList.filter { it.name.contains(newText, true) }
+
+                    emptyUsersList(newList)
+
                     adapterTransferUser.submitList(newList)
                     true
 
                 } else {
+                    emptyUsersList(profilesList)
+
                     adapterTransferUser.submitList(profilesList)
                     false
                 }
@@ -88,6 +93,7 @@ class TransferUserListFragment : Fragment() {
                 }
 
                 override fun onSearchViewClosed() {
+                    emptyUsersList(profilesList)
                     adapterTransferUser.submitList(profilesList)
                 }
 
@@ -133,6 +139,10 @@ class TransferUserListFragment : Fragment() {
             setHasFixedSize(true)
             adapter = adapterTransferUser
         }
+    }
+
+    private fun emptyUsersList(list: List<User>) {
+        binding.txtEmptyUsersList.isVisible = list.isEmpty()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

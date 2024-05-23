@@ -64,6 +64,7 @@
     <string name="recover_fragment_bottom_sheet_success_recover">Link de recuperação enviado com sucesso para o seu e-mail</string>
 
     <!--HomeFragment-->
+    <string name="home_fragment_empty_transactions_list">Nenhuma atividade encontrada</string>
     <string name="home_fragment_menu_deposit">Depositar</string>
     <string name="home_fragment_menu_recharge">Recarga de telefone</string>
     <string name="home_fragment_menu_bank_statement">Extrato bancário</string>
@@ -109,6 +110,7 @@
 
     <!--BankStatementFragment-->
     <string name="bank_statement_fragment_toolbar_txt_bank_statement">Extrato</string>
+    <string name="bank_statement_fragment_empty_transactions_list">Nenhuma atividade encontrada</string>
 
     <!--ProfileFragment-->
     <string name="profile_fragment_toolbar_txt_profile">Editar Perfil</string>
@@ -135,6 +137,7 @@
 
     <!--TransferUserListFragment-->
     <string name="transfer_user_list_fragment_toolbar_txt_transference">Usuários</string>
+    <string name="transfer_user_list_fragment_empty_users_list">Nenhum usuário encontrado</string>
 
     <!--TransferFormFragment-->
     <string name="transfer_form_fragment_txt_btn_continue">CONTINUAR</string>

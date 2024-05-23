@@ -195,6 +195,8 @@ class HomeFragment : Fragment() {
                 is StateView.Success -> {
                     binding.progressBar.isVisible = false
 
+                    binding.txtEmptyTransactionsList.isVisible = stateView.data?.isEmpty() == true
+
                     adapterTransaction.submitList(stateView.data?.reversed()?.take(6))
 
                     showBalance(stateView.data ?: emptyList())
