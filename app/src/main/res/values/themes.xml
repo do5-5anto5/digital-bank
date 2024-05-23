@@ -62,5 +62,14 @@
         <item name="iconsTint">@color/white</item>
     </style>
 
+    <style name="TransferConfirmationTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/color_transfer_btn</item>
+    </style>
+
+    <style name="RechargeFormTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+    </style>
+
     <style name="Theme.DigitalBank" parent="Base.Theme.DigitalBank" />
 </resources>

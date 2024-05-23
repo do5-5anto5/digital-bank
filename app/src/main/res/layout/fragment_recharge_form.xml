@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.Dark"
+    android:theme="@style/RechargeFormTheme"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presenter.features.recharge.RechargeFormFragment">
 
@@ -128,7 +128,7 @@
         android:id="@+id/btn_continue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
+        android:background="@drawable/bg_btn_loading"
         android:text="@string/recharge_form_fragment_txt_btn_continue"
         android:textColor="@color/color_default"
         android:textStyle="bold"

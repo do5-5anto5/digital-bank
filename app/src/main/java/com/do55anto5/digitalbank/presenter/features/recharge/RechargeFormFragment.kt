@@ -63,11 +63,9 @@ class RechargeFormFragment : BaseFragment() {
             }
         }
 
-        with(binding) {
-
-            btnContinue.setOnClickListener {
-                validateRecharge()
-            }
+        binding.btnContinue.setOnClickListener {
+            binding.btnContinue.isEnabled = false
+            validateRecharge()
         }
 
     }
@@ -91,13 +89,16 @@ class RechargeFormFragment : BaseFragment() {
                    saveRecharge(recharge)
 
                 } else {
+                    binding.btnContinue.isEnabled = true
                     val length = phone.length
                     showBottomSheet(message = length.toString())
                 }
             } else {
+                binding.btnContinue.isEnabled = true
                 showBottomSheet(message = getString(R.string.error_txt_empty_phone))
             }
         } else {
+            binding.btnContinue.isEnabled = true
             showBottomSheet(message = getString(R.string.deposit_form_fragment_bottom_sheet_amount_invalid))
         }
     }

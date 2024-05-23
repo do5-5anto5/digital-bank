@@ -53,7 +53,6 @@ class ConfirmTransferFragment : Fragment() {
         configData()
 
         initListeners()
-
     }
 
     private fun getBalance() {
@@ -75,6 +74,7 @@ class ConfirmTransferFragment : Fragment() {
                         saveTransfer(transfer)
                     } else {
                         binding.progressBar.isVisible = false
+                        binding.btnContinue.isEnabled = true
                         showBottomSheet(message  = getString(R.string.confirm_fragment_bottom_sheet_insufficient_funds))
                     }
                 }
@@ -175,7 +175,10 @@ class ConfirmTransferFragment : Fragment() {
     }
 
     private fun initListeners() {
-        binding.btnContinue.setOnClickListener { getBalance() } }
+        binding.btnContinue.setOnClickListener {
+            binding.btnContinue.isEnabled = false
+            getBalance() }
+    }
 
     private fun configData() {
         if (args.user.image.isNotEmpty()) {
