@@ -36,12 +36,20 @@
     The app can be expanded with new features and enhancements according to the specific needs of the user.
 
 # **Screenshots**
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/7e280ed9-e06a-43ff-905e-b30f04d49fc0)
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/436a313c-b584-4c05-b3c9-fd2f5e34f1fe)
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/eda26d26-4d23-49a7-accb-7e52ed3ddba0)
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/4287494b-0ee7-476b-a8f4-c14684a820c4)
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/055d0c37-6700-4def-a137-c1947072444f)
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/7cbe995d-1757-4ae1-9648-dc3e0e174289)
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/eab6d90e-e4e9-4a9e-8a1e-980a57a29277)
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/91490eaf-9130-4b35-b14f-2caf5bf5b915)
-![image](https://github.com/do5-5anto5/digital-bank/assets/138328613/844f11ee-6407-4457-91d9-b8b545f96486)
+
+![Login](https://github.com/do5-5anto5/digital-bank/assets/138328613/1ed7740c-d0be-4bdf-80e5-3e2e8ed1b140)
+![Register](https://github.com/do5-5anto5/digital-bank/assets/138328613/949b3d6c-3277-4ef4-9f7a-ae41b79edc32)
+![Recover account](https://github.com/do5-5anto5/digital-bank/assets/138328613/9a45a0e8-001c-4839-a7cb-80ea80ca5ed3)
+![Error simulation](https://github.com/do5-5anto5/digital-bank/assets/138328613/8cd6ae51-55f3-455a-b0f0-7b817b70f92c)
+![Home](https://github.com/do5-5anto5/digital-bank/assets/138328613/29531091-fe01-4122-98ad-b9ba9109c75d)
+![Deposit](https://github.com/do5-5anto5/digital-bank/assets/138328613/4b1dbdeb-71e3-49a4-9468-920baa9534cd)
+![Phone Recharge service](https://github.com/do5-5anto5/digital-bank/assets/138328613/d9b78fdd-4f72-4161-90ee-0d908e506145)
+![Recharge form](https://github.com/do5-5anto5/digital-bank/assets/138328613/22ff3f53-870a-46e4-a8c1-9f55f110abd6)
+![Bank Statement](https://github.com/do5-5anto5/digital-bank/assets/138328613/9c39bbd0-5ff5-4164-a30e-aa358d26a136)
+![Bank Receipt](https://github.com/do5-5anto5/digital-bank/assets/138328613/1c51326e-945f-408c-9177-e0ee86d4686c)
+![Contacts](https://github.com/do5-5anto5/digital-bank/assets/138328613/b6f51a74-07a5-4da0-a4ac-fe922cc85bf8)
+![Transfer confirmation](https://github.com/do5-5anto5/digital-bank/assets/138328613/a701365b-6afa-4382-96e6-7a78f706f72d)
+![Profile editing](https://github.com/do5-5anto5/digital-bank/assets/138328613/bb70a690-69b9-45a0-8d6f-c7dadb7d5252)
+
+
+
