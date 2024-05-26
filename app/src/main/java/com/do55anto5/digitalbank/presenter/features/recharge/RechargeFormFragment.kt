@@ -65,9 +65,38 @@ class RechargeFormFragment : BaseFragment() {
 
         binding.btnContinue.setOnClickListener {
             binding.btnContinue.isEnabled = false
-            validateRecharge()
+            getBalance()
         }
 
+    }
+
+    private fun getBalance() {
+        rechargeViewModel.getBalance().observe(viewLifecycleOwner) { stateView ->
+            val amount = MoneyTextWatcher.getValueUnMasked(binding.editAmount)
+
+            when (stateView) {
+
+                is StateView.Loading -> {
+                    binding.progressBar.isVisible = true
+                }
+
+                is StateView.Success -> {
+
+                    if ((stateView.data ?: 0f) >= amount) {
+                        validateRecharge()
+                    } else {
+                        binding.progressBar.isVisible = false
+                        binding.btnContinue.isEnabled = true
+                        showBottomSheet(message  = getString(R.string.confirm_fragment_bottom_sheet_insufficient_funds))
+                    }
+                }
+
+                else -> {
+                    binding.progressBar.isVisible = false
+                    showBottomSheet(message = stateView.message)
+                }
+            }
+        }
     }
 
     private fun validateRecharge() {
